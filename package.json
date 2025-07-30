@@ -1,4 +1,5 @@
 {
+  "homepage": "https://sumitkumarchaudhary.com.np",
   "name": "developer-portfolio",
   "version": "2.0.0",
   "description": "Software Developer Portfolio Template built with react.js bootstrap that helps you showcase your work and skills as a software developer.",
@@ -13,7 +14,9 @@
     "lint": "eslint *.{js,jsx,ts,tsx}",
     "lint:fix": "eslint *.{js,jsx,ts,tsx} --fix",
     "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write ."
+    "prettier:fix": "prettier --write .",
+    "export": "next export",
+  "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "@apollo/client": "^3.3.21",
@@ -48,6 +51,7 @@
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
     "eslint-config-prettier": "^8.6.0",
+    "gh-pages": "^6.3.0",
     "prettier": "2.8.4",
     "typescript": "^4.9.5"
   }
