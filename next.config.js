@@ -4,7 +4,8 @@ const nextConfig = {
   images: {
     domains: ["avatars.githubusercontent.com"],
   },
-  output: "export", // <- THIS is key for static sites
+  output: "export",
+  assetPrefix: "./", // 👈 Add this line
 };
 
 module.exports = nextConfig;
