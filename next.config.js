@@ -5,8 +5,7 @@ const nextConfig = {
     domains: ["avatars.githubusercontent.com"],
   },
   output: "export",             
-  assetPrefix: "./portfolio-website/",
-  basePath: "/portfolio-website",          
+  assetPrefix: "./",         
   trailingSlash: true          
 };
 
