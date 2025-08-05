@@ -9,9 +9,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
-    "export": "next export",
     "deploy": "gh-pages -d out",
     "lint": "eslint *.{js,jsx,ts,tsx}",
     "lint:fix": "eslint *.{js,jsx,ts,tsx} --fix",
