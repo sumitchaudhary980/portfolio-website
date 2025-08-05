@@ -29,6 +29,7 @@ export const socialLinks: SocialLinksType = {
   email: "sc.sumit.chaudhary.dev@gmail.com",
   linkedin: "https://www.linkedin.com/in/sumit-chaudhary-505129320/",
   github: "https://github.com/sumitchaudhary980",
+  instagram: "https://www.instagram.com/sumitjaiswal.1/"
 };
 
 export const skillsSection: SkillsSectionType = {
