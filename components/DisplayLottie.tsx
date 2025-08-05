@@ -6,8 +6,8 @@ type Props = {
 };
 
 // Dynamically import react-lottie to prevent SSR issues
+// @ts-ignore
 const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
-
 const GreetingLottie = ({ animationPath }: Props) => {
   const defaultOptions = {
     loop: true,
