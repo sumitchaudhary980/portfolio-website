@@ -26,7 +26,7 @@ export const openSource = {
 export const contact = {};
 
 export const socialLinks: SocialLinksType = {
-  email: "mailto:sc.sumit.chaudhary.dev@gmail.com",
+  email: ":sc.sumit.chaudhary.dev@gmail.com",
   linkedin: "https://www.linkedin.com/in/sumit-chaudhary-505129320/",
   github: "https://github.com/sumitchaudhary980",
 };
