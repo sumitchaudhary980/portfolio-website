@@ -8,7 +8,7 @@ const SocialLinks = () => {
      {socialLinks.email && (
   <a
     className="btn btn-white btn-icon-only rounded-circle ml-1"
-    href={`mailto:${socialLinks.email}`}
+    href='mailto:sc.sumit.chaudhary.dev@gmail.com'
     rel="noopener"
     aria-label="Email"
     style={{ textDecoration: "none" }}
