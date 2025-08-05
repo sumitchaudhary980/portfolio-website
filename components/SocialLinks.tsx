@@ -10,7 +10,7 @@ const SocialLinks = () => {
           className="btn-icon-only rounded-circle ml-1"
           color="white"
           rel="noopener"
-          aria-label="URL"
+          aria-label="email"
           href={socialLinks.email}
           
         >
