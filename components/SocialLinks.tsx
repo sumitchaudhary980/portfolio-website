@@ -5,22 +5,20 @@ import { socialLinks } from "../portfolio";
 const SocialLinks = () => {
   return (
     <div className="btn-wrapper text-lg">
-      {socialLinks.email && (
-        <Button
-    
-          className="btn-icon-only rounded-circle ml-1"
-          color="white"
-          rel="noopener"
-          aria-label="Email"
-         href={`mailto:${socialLinks.email}`}
+     {socialLinks.email && (
+  <a
+    className="btn btn-white btn-icon-only rounded-circle ml-1"
+    href={`mailto:${socialLinks.email}`}
+    rel="noopener"
+    aria-label="Email"
+    style={{ textDecoration: "none" }}
+  >
+    <span className="btn-inner--icon">
+      <i className="fa fa-envelope" />
+    </span>
+  </a>
+)}
 
-          
-        >
-          <span className="btn-inner--icon">
-            <i className="fa fa-envelope" />
-          </span>
-        </Button>
-      )}
       {socialLinks.linkedin && (
         <Button
           className="btn-icon-only rounded-circle ml-1"
