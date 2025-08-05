@@ -16,7 +16,7 @@ export const greetings: GreetingsType = {
   title: "Hi all, I'm Sumit",
   description:
     "I'm a passionate Full Stack Web Developer with experience building dynamic web applications using HTML, CSS, JavaScript, Bootstrap, React, PHP, and Laravel, along with integrating various payment systems. I have a strong interest in exploring new technologies and applying them to enhance my projects. I'm a self-motivated and hardworking individual, always eager to learn, adapt, and collaborate effectively in a team environment.",
-  resumeLink: "#",
+  resumeLink: "https://drive.google.com/file/d/1LoyTMDSx5kAS6F6vfpltxmGupFBNCQfc/view?usp=sharing",
 };
 
 export const openSource = {
