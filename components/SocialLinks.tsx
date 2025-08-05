@@ -7,7 +7,7 @@ const SocialLinks = () => {
     <div className="btn-wrapper text-lg">
       {socialLinks.email && (
         <Button
-        tag = "a"
+    
           className="btn-icon-only rounded-circle ml-1"
           color="white"
           rel="noopener"
