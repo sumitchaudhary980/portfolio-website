@@ -12,7 +12,7 @@ const SocialLinks = () => {
           rel="noopener"
           aria-label="URL"
           href={socialLinks.email}
-          target="_blank"
+          
         >
           <span className="btn-inner--icon">
             <i className="fa fa-envelope" />
