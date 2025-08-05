@@ -35,6 +35,7 @@ const SocialLinks = () => {
       )}
       {socialLinks.github && (
         <Button
+        tag="a"
           className="btn-icon-only rounded-circle ml-1"
           color="github"
           href={socialLinks.github}
