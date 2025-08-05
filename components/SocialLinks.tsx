@@ -12,7 +12,8 @@ const SocialLinks = () => {
           color="white"
           rel="noopener"
           aria-label="Email"
-          href={socialLinks.email}
+         href={`mailto:${socialLinks.email}`}
+
           
         >
           <span className="btn-inner--icon">
