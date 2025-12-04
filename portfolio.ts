@@ -15,8 +15,8 @@ export const greetings: GreetingsType = {
   name: "Sumit Chaudhary",
   title: "Hi all, I'm Sumit",
   description:
-    "I'm a passionate Full Stack Web Developer with experience building dynamic web applications using HTML, CSS, JavaScript, Bootstrap, React, PHP, and Laravel, along with integrating various payment systems. I have a strong interest in exploring new technologies and applying them to enhance my projects. I'm a self-motivated and hardworking individual, always eager to learn, adapt, and collaborate effectively in a team environment.",
-  resumeLink: "https://drive.google.com/file/d/1kq53gqYqX8kRJrbc1PNcclvPh1_ejD9_/view?usp=sharing",
+    "I'm a passionate Full Stack Web Developer with experience building dynamic web applications using HTML, CSS, JavaScript, Bootstrap, PHP, and Laravel, along with integrating various payment systems. I have a strong interest in exploring new technologies and applying them to enhance my projects. I'm a self-motivated and hardworking individual, always eager to learn, adapt, and collaborate effectively in a team environment.",
+  resumeLink: "https://drive.google.com/file/d/11HX4u-QT082yPekr9NuuD6Zf-lggdM0m/view?usp=sharing",
 };
 
 export const openSource = {
@@ -40,7 +40,6 @@ export const skillsSection: SkillsSectionType = {
       title: "Full Stack Development",
       lottieAnimationFile: "/lottie/skills/fullstack.json", // Path of Lottie Animation JSON File
       skills: [
-        emoji("⚡ Building responsive Single-Page-Apps (SPA) & PWAs using React.js"),
         emoji("⚡ Developing responsive static websites using HTML, CSS, JavaScript, and Bootstrap"),
         emoji("⚡ Creating RESTful APIs and backend solutions with PHP & Laravel"),
         emoji("⚡ Integrating secure payment gateways into web applications"),
@@ -62,10 +61,7 @@ export const skillsSection: SkillsSectionType = {
     skillName: "Bootstrap",
     iconifyTag: "logos:bootstrap",
   },
-  {
-    skillName: "React",
-    iconifyTag: "vscode-icons:file-type-reactjs",
-  },
+ 
   {
     skillName: "PHP",
     iconifyTag: "logos:php",
@@ -114,18 +110,16 @@ export const educationInfo: EducationType[] = [
 
 
 export const experience: ExperienceType[] = [
-  // ... your other experiences
   {
     role: "Full Stack Developer (Intern)",
     company: "Immersive Mobile Designs",
-    companyLogo: "/img/icons/common/iMobiledesigns.jpeg", // add appropriate logo path if you have
+    companyLogo: "/img/icons/common/iMobiledesigns.jpeg", 
     date: "Dec 2024 -Apr 2025", // adjust dates if different
-    desc: "Developed a robust multi-vendor e-commerce marketplace project using Laravel for backend and React for frontend. Focused on creating a seamless user experience, secure payment integration, and efficient vendor management.",
+    desc: "Developed a robust multi-vendor e-commerce marketplace project using Laravel for backend Focused on creating a seamless user experience, secure payment integration, and efficient vendor management.",
     descBullets: [
       "Implemented multi-vendor functionality allowing multiple sellers to register and manage products.",
       "Developed smooth shopping cart features with guest user support.",
       "Integrated secure payment gateways for checkout and automated vendor payouts.",
-      "Utilized Daisy UI components to design responsive and user-friendly interfaces.",
       "Applied comprehensive validation rules to forms and categories to ensure data integrity.",
       "Architected the project focusing on scalability and maintainability.",
       "Automated monthly vendor payouts to streamline financial processes.",
@@ -155,7 +149,7 @@ export const projects: ProjectType[] = [
   {
     name: "Multi-Vendor E-commerce Website",
     github: "https://github.com/sumitchaudhary980/laravel-react-multi-vendor-ecommerce",
-    desc: "A robust multi-vendor e-commerce marketplace built using Laravel for the backend and React for the frontend, featuring secure payment integration, multi-vendor functionality, smooth shopping cart features with guest user support, automated vendor payouts, and responsive Daisy UI components for a user-friendly interface.",
+    desc: "A robust multi-vendor e-commerce marketplace built using Laravel for the backend , featuring secure payment integration, multi-vendor functionality, smooth shopping cart features with guest user support, automated vendor payouts, and responsive Daisy UI components for a user-friendly interface.",
   },
 ];
 
@@ -167,7 +161,7 @@ export const seoData: SEODataType = {
   description: greetings.description,
   author: "Sumit Chaudhary",
   image: "https://avatars.githubusercontent.com/u/?v=4",
-  url: "https://developer-portfolio-1hanzla100.vercel.app",
+  url: "https://www.sumitkumarchaudhary.com.np/",
   keywords: [
     "Sumit",
     "Sumit Chaudhary",
