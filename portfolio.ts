@@ -99,11 +99,10 @@ export const educationInfo: EducationType[] = [
     schoolName: "Herald College, Naxal, Kathmandu",
     subHeader: "BSc (Hons) in Computer Science (Affiliated with University of Wolverhampton, UK) (Pursuing)",
     duration: "2025 - Present",
-    desc: "Currently attending UPC classes; main semester starts from September 2025.",
+    desc: "",
     grade: "",
     descBullets: [
-      "Admitted recently, preparing for main coursework beginning September 2025.",
-      "Following curriculum affiliated with University of Wolverhampton, UK.",
+      "",
     ],
   },
 ];
