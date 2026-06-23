@@ -66,7 +66,7 @@ export const skillsSection: SkillsSectionType = {
     iconifyTag: "logos:react",
   },
   {
-    skillName: "Node.js",
+    skillName: "NodeJS",
     iconifyTag: "logos:nodejs",
   },
   {
@@ -79,10 +79,10 @@ export const skillsSection: SkillsSectionType = {
   },
   {
     skillName: "Payment Integration",
-    iconifyTag: "mdi:credit-card-outline", // you might need to pick an icon library that supports this
+    iconifyTag: "mdi:credit-card-outline", 
   },
   {
-    skillName: "GitHub",
+    skillName: "Github",
     iconifyTag: "akar-icons:github-fill",
   },
 ],
