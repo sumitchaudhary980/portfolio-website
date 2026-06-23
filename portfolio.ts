@@ -53,15 +53,22 @@ export const skillsSection: SkillsSectionType = {
     skillName: "CSS3",
     iconifyTag: "vscode-icons:file-type-css",
   },
+   {
+    skillName: "Bootstrap",
+    iconifyTag: "logos:bootstrap",
+  },
   {
     skillName: "JavaScript",
     iconifyTag: "logos:javascript",
   },
   {
-    skillName: "Bootstrap",
-    iconifyTag: "logos:bootstrap",
+    skillName: "React",
+    iconifyTag: "logos:react",
   },
- 
+  {
+    skillName: "Node.js",
+    iconifyTag: "logos:nodejs",
+  },
   {
     skillName: "PHP",
     iconifyTag: "logos:php",
