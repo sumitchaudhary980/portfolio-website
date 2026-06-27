@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /*
-Host: developer-portfolio-1hanzla100.vercel.app
+Allow: /
+
 Sitemap: https://www.sumitkumarchaudhary.com.np/sitemap.xml
