@@ -1,12 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false,
+  reactStrictMode: true,
   images: {
-    domains: ["avatars.githubusercontent.com"],
-  },
-  output: "export",             
-  assetPrefix: "/",         
-  trailingSlash: true          
+    formats: ["image/avif", "image/webp"]
+  }
 };
 
 module.exports = nextConfig;

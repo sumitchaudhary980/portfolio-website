@@ -1,0 +1,488 @@
+ ⚠ Cross origin request detected from 127.0.0.1 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '735679522'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1428247654'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1428247654'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1428247654'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '735679522'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '735679522'
+}
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function] {
+  digest: '817881413'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '735679522'
+}
+[TypeError: __webpack_modules__[moduleId] is not a function]
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function]
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function] {
+  page: '/'
+}
+ ⨯ ./node_modules/@react-three/drei/index.js
+Error: ENOENT: no such file or directory, open 'C:\Users\Legion\Documents\portfolio-website\node_modules\@react-three\drei\index.js'
+
+Import trace for requested module:
+./node_modules/@react-three/drei/index.js
+./components/HeroScene.jsx
+./sections/Hero.js
+ ⨯ ./components/HeroScene.jsx
+Error: 
+
+Caused by:
+    0: Failed to read source code from C:\Users\Legion\Documents\portfolio-website\components\HeroScene.jsx
+    1: The system cannot find the file specified. (os error 2)
+
+Import trace for requested module:
+./components/HeroScene.jsx
+./sections/Hero.js
+ ⨯ ./components/CountUp.jsx
+Error: 
+
+Caused by:
+    0: Failed to read source code from C:\Users\Legion\Documents\portfolio-website\components\CountUp.jsx
+    1: The system cannot find the file specified. (os error 2)
+
+Import trace for requested module:
+./components/CountUp.jsx
+./sections/About.js
+./app/page.js
+ ⨯ ./components/CountUp.jsx
+Error: 
+
+Caused by:
+    0: Failed to read source code from C:\Users\Legion\Documents\portfolio-website\components\CountUp.jsx
+    1: The system cannot find the file specified. (os error 2)
+
+Import trace for requested module:
+./components/CountUp.jsx
+./sections/About.js
+./app/page.js
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '735679522'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1428247654'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1428247654'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1428247654'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '735679522'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '735679522'
+}
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function] {
+  digest: '817881413'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '735679522'
+}
+[TypeError: __webpack_modules__[moduleId] is not a function]
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function]
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function] {
+  page: '/'
+}
+ ⨯ Error: Cannot find module './611.js'
+Require stack:
+- C:\Users\Legion\Documents\portfolio-website\.next\server\webpack-runtime.js
+- C:\Users\Legion\Documents\portfolio-website\.next\server\app\page.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\require.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\load-components.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\utils.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\swc\options.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\swc\index.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\analysis\parse-module.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\analysis\get-page-static-info.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\Legion\Documents\portfolio-website\.next\server\pages\_document.js:1:325)
+    at Object.<anonymous> (C:\Users\Legion\Documents\portfolio-website\.next\server\pages\_document.js:1:371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: __webpack_modules__[moduleId] is not a function] {
+  page: '/'
+}
+ ⨯ Error: Cannot find module './611.js'
+Require stack:
+- C:\Users\Legion\Documents\portfolio-website\.next\server\webpack-runtime.js
+- C:\Users\Legion\Documents\portfolio-website\.next\server\app\page.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\require.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\load-components.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\utils.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\swc\options.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\swc\index.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\analysis\parse-module.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\analysis\get-page-static-info.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\Legion\Documents\portfolio-website\.next\server\pages\_document.js:1:325)
+    at Object.<anonymous> (C:\Users\Legion\Documents\portfolio-website\.next\server\pages\_document.js:1:371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '735679522'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1428247654'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1428247654'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1428247654'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '735679522'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '735679522'
+}
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function] {
+  digest: '817881413'
+}
+ ⨯ Error: Could not find the module "C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '735679522'
+}
+[TypeError: __webpack_modules__[moduleId] is not a function]
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function]
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function] {
+  page: '/'
+}
+ ⨯ Error: Cannot find module './611.js'
+Require stack:
+- C:\Users\Legion\Documents\portfolio-website\.next\server\webpack-runtime.js
+- C:\Users\Legion\Documents\portfolio-website\.next\server\app\page.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\require.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\load-components.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\utils.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\swc\options.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\swc\index.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\analysis\parse-module.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\analysis\get-page-static-info.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\Legion\Documents\portfolio-website\.next\server\pages\_document.js:1:325)
+    at Object.<anonymous> (C:\Users\Legion\Documents\portfolio-website\.next\server\pages\_document.js:1:371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: __webpack_modules__[moduleId] is not a function] {
+  page: '/'
+}
+ ⨯ Error: Cannot find module './611.js'
+Require stack:
+- C:\Users\Legion\Documents\portfolio-website\.next\server\webpack-runtime.js
+- C:\Users\Legion\Documents\portfolio-website\.next\server\app\page.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\require.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\load-components.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\utils.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\swc\options.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\swc\index.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\analysis\parse-module.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\analysis\get-page-static-info.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\Legion\Documents\portfolio-website\.next\server\pages\_document.js:1:325)
+    at Object.<anonymous> (C:\Users\Legion\Documents\portfolio-website\.next\server\pages\_document.js:1:371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ Error: Cannot find module './903.js'
+Require stack:
+- C:\Users\Legion\Documents\portfolio-website\.next\server\webpack-runtime.js
+- C:\Users\Legion\Documents\portfolio-website\.next\server\app\_not-found\page.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\require.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\load-components.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\utils.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\swc\options.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\swc\index.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\analysis\parse-module.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\build\analysis\get-page-static-info.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Legion\Documents\portfolio-website\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\Legion\Documents\portfolio-website\.next\server\app\_not-found\page.js:2:13749)
+    at Object.<anonymous> (C:\Users\Legion\Documents\portfolio-website\.next\server\app\_not-found\page.js:2:13799) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\Legion\Documents\portfolio-website\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Legion\Documents\portfolio-website\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\Legion\Documents\portfolio-website\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Legion\Documents\portfolio-website\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\routes-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Legion\Documents\portfolio-website\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\Legion\Documents\portfolio-website\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\routes-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Legion\Documents\portfolio-website\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\Legion\Documents\portfolio-website\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Legion\Documents\portfolio-website\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\routes-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Legion\Documents\portfolio-website\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\Legion\Documents\portfolio-website\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\routes-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Legion\Documents\portfolio-website\.next\server\pages-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\server\\pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\Legion\Documents\portfolio-website\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, stat 'C:\Users\Legion\Documents\portfolio-website\.next\cache\webpack\client-development\1.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\cache\\webpack\\client-development\\1.pack.gz'
+}
+ ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat 'C:\Users\Legion\Documents\portfolio-website\.next\cache\webpack\client-development\1.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\cache\\webpack\\client-development\\1.pack.gz'
+}
+ ⨯ unhandledRejection:  [Error: ENOENT: no such file or directory, stat 'C:\Users\Legion\Documents\portfolio-website\.next\cache\webpack\client-development\1.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\cache\\webpack\\client-development\\1.pack.gz'
+}
+[Error: ENOENT: no such file or directory, stat 'C:\Users\Legion\Documents\portfolio-website\.next\cache\webpack\client-development\2.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\cache\\webpack\\client-development\\2.pack.gz'
+}
+ ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat 'C:\Users\Legion\Documents\portfolio-website\.next\cache\webpack\client-development\2.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\cache\\webpack\\client-development\\2.pack.gz'
+}
+ ⨯ unhandledRejection:  [Error: ENOENT: no such file or directory, stat 'C:\Users\Legion\Documents\portfolio-website\.next\cache\webpack\client-development\2.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\cache\\webpack\\client-development\\2.pack.gz'
+}
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat 'C:\Users\Legion\Documents\portfolio-website\.next\cache\webpack\client-development\1.pack.gz'
+[Error: ENOENT: no such file or directory, stat 'C:\Users\Legion\Documents\portfolio-website\.next\cache\webpack\server-development\14.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\cache\\webpack\\server-development\\14.pack.gz'
+}
+ ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat 'C:\Users\Legion\Documents\portfolio-website\.next\cache\webpack\server-development\14.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\cache\\webpack\\server-development\\14.pack.gz'
+}
+ ⨯ unhandledRejection:  [Error: ENOENT: no such file or directory, stat 'C:\Users\Legion\Documents\portfolio-website\.next\cache\webpack\server-development\14.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\cache\\webpack\\server-development\\14.pack.gz'
+}
+[Error: ENOENT: no such file or directory, stat 'C:\Users\Legion\Documents\portfolio-website\.next\cache\webpack\server-development\16.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\cache\\webpack\\server-development\\16.pack.gz'
+}
+ ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat 'C:\Users\Legion\Documents\portfolio-website\.next\cache\webpack\server-development\16.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\cache\\webpack\\server-development\\16.pack.gz'
+}
+ ⨯ unhandledRejection:  [Error: ENOENT: no such file or directory, stat 'C:\Users\Legion\Documents\portfolio-website\.next\cache\webpack\server-development\16.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\Users\\Legion\\Documents\\portfolio-website\\.next\\cache\\webpack\\server-development\\16.pack.gz'
+}
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat 'C:\Users\Legion\Documents\portfolio-website\.next\cache\webpack\server-development\14.pack.gz'
+ ⨯ ./components/SocialDock.js
+Error:   [31mx[0m Expected '</', got '}'
+    ,-[[36;1;4mC:\Users\Legion\Documents\portfolio-website\components\SocialDock.js[0m:25:1]
+ [2m22[0m |             animate={{ opacity: 1, x: 0 }}
+ [2m23[0m |             transition={{ delay: shouldReduceMotion ? 0 : 0.8 + index * 0.08 }}
+ [2m24[0m |             whileHover={shouldReduceMotion ? undefined : { x: 4, scale: 1.04 }}
+ [2m25[0m |             {/* Added 'place-items-center' right here */}
+    : [35;1m                                                        ^[0m
+ [2m26[0m |             className="group relative grid h-10 w-10 place-items-center overflow-visible rounded-full border border-white/12 bg-ink/80 text-white/72 backdrop-blur-xl transition hover:border-cyan/60 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan 2xl:h-11 2xl:w-11"
+ [2m27[0m |           >
+ [2m28[0m |             <span className="pointer-events-none absolute inset-1 rounded-full bg-cyan/20 opacity-0 blur-[10px] transition duration-300 group-hover:opacity-100" aria-hidden="true" />
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/SocialDock.js
+./app/page.js
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ ./components/Footer.js
+Error:   [31mx[0m Expected '</', got '}'
+    ,-[[36;1;4mC:\Users\Legion\Documents\portfolio-website\components\Footer.js[0m:31:1]
+ [2m28[0m |                 href={item.href}
+ [2m29[0m |                 target={item.href.startsWith("http") ? "_blank" : undefined}
+ [2m30[0m |                 rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+ [2m31[0m |                 {/* Added 'place-items-center' right here */}
+    : [35;1m                                                            ^[0m
+ [2m32[0m |                 className="group relative grid h-10 w-10 place-items-center overflow-visible rounded-full border border-white/10 bg-ink/40 text-white/62 transition hover:border-cyan/50 hover:text-white"
+ [2m33[0m |                 aria-label={item.label}
+ [2m34[0m |               >
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/Footer.js
+./app/page.js
