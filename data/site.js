@@ -38,7 +38,7 @@ export const siteConfig = {
   title: "Full Stack Developer",
   tagline: "Full Stack Developer based in Kathmandu, Nepal, building modern, scalable, and user-friendly web applications with React, HTML5, CSS3, Bootstrap, JavaScript, PHP, Laravel, and Node.js", description:
     "Sumit Kumar Chaudhary is a Full Stack Developer based in Kathmandu, Nepal. Explore my portfolio featuring React, HTML5, CSS3, Bootstrap, Javascript, PHP, Laravel, Node.js, and modern web application projects with scalable backend architecture and responsive user interfaces.",
-  url: "https://sumitkumarchaudhary.com",
+  url: "https://www.sumitkumarchaudhary.com",
   email: "jaiswalsumit1010@gmail.com",
   location: "Kathmandu, Nepal",
   resume: "/sumit-kumar-chaudhary-resume.pdf",
