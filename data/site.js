@@ -62,7 +62,7 @@ export const siteConfig = {
   ],
   socials: {
     github: "https://github.com/sumitchaudhary980",
-    linkedin: "https://www.linkedin.com/in/sumit-chaudhary-505129320/",
+    linkedin: "https://www.linkedin.com/in/sumit-kumar-chaudhary-505129320/",
     instagram: "https://www.instagram.com/sumitjaiswal.1"
   }
 };
