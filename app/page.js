@@ -1,3 +1,15 @@
+import About from "@/sections/About";
+import Contact from "@/sections/Contact";
+import Education from "@/sections/Education";
+import Experience from "@/sections/Experience";
+import Hero from "@/sections/Hero";
+import Projects from "@/sections/Projects";
+import Skills from "@/sections/Skills";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import SocialDock from "@/components/SocialDock";
+import { siteConfig } from "@/data/site";
+
 export const metadata = {
   title: `${siteConfig.name} - Full Stack Developer Portfolio`,
   description:
@@ -43,3 +55,22 @@ export const metadata = {
     images: ["/opengraph-image"],
   },
 };
+
+export default function HomePage() {
+  return (
+    <>
+      <Header />
+      <SocialDock />
+      <main id="main-content">
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Education />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+}
