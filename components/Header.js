@@ -13,30 +13,61 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
+  // Header background on scroll
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 16);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 16);
+    };
+
     handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Active nav item while scrolling
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target?.id) setActive(visible.target.id);
-      },
-      { threshold: [0.24, 0.36, 0.5], rootMargin: "-18% 0px -58% 0px" }
-    );
+    const updateActiveSection = () => {
+      const scrollPosition = window.scrollY + window.innerHeight * 0.35;
 
-    sectionIds.forEach((id) => {
-      const element = document.getElementById(id);
-      if (element) observer.observe(element);
+      let currentSection = sectionIds[0];
+
+      sectionIds.forEach((id) => {
+        const section = document.getElementById(id);
+
+        if (!section) return;
+
+        if (scrollPosition >= section.offsetTop) {
+          currentSection = id;
+        }
+      });
+
+      // Keep last section active when at bottom
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 5
+      ) {
+        currentSection = sectionIds[sectionIds.length - 1];
+      }
+
+      setActive(currentSection);
+    };
+
+    updateActiveSection();
+
+    window.addEventListener("scroll", updateActiveSection, {
+      passive: true,
     });
 
-    return () => observer.disconnect();
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, []);
 
   const closeMenu = () => setIsOpen(false);
@@ -44,7 +75,9 @@ export default function Header() {
   return (
     <header
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        isScrolled ? "border-b border-white/10 bg-ink/70 shadow-2xl shadow-black/20 backdrop-blur-xl" : "bg-transparent"
+        isScrolled
+          ? "border-b border-white/10 bg-ink/70 shadow-2xl shadow-black/20 backdrop-blur-xl"
+          : "bg-transparent"
       }`}
     >
       <a
@@ -53,12 +86,23 @@ export default function Header() {
       >
         Skip to content
       </a>
-      <nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-5 md:px-8" aria-label="Primary">
-        <a href="#home" className="group flex items-center gap-3" aria-label={`${siteConfig.name} home`}>
+
+      <nav
+        className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-5 md:px-8"
+        aria-label="Primary"
+      >
+        <a
+          href="#home"
+          className="group flex items-center gap-3"
+          aria-label={`${siteConfig.name} home`}
+        >
           <span className="grid h-10 w-10 place-items-center rounded-full border border-white/14 bg-white/8 text-sm font-black text-white shadow-cyan transition group-hover:border-cyan/60">
             SK
           </span>
-          <span className="hidden text-sm font-semibold text-white/88 sm:block">Sumit</span>
+
+          <span className="hidden text-sm font-semibold text-white/88 sm:block">
+            Sumit
+          </span>
         </a>
 
         <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] p-1 backdrop-blur-xl lg:flex">
@@ -70,16 +114,27 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
+                onClick={() => setActive(id)}
                 className="relative rounded-full px-4 py-2 text-sm font-medium text-white/64 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan"
               >
                 <span className="relative z-10">{item.label}</span>
-                {isActive ? (
+
+                {isActive && (
                   <motion.span
                     layoutId="active-pill"
                     className="absolute inset-0 rounded-full bg-white/10"
-                    transition={shouldReduceMotion ? { duration: 0 } : { type: "spring", stiffness: 360, damping: 32 }}
+                    transition={
+                      shouldReduceMotion
+                        ? { duration: 0 }
+                        : {
+                            type: "spring",
+                            stiffness: 360,
+                            damping: 32,
+                          }
+                    }
                   />
-                ) : null}
+                )}
+
                 <span
                   className={`absolute bottom-1.5 left-4 right-4 h-px origin-left rounded-full bg-cyan transition-transform duration-300 ${
                     isActive ? "scale-x-100" : "scale-x-0"
@@ -96,52 +151,71 @@ export default function Header() {
             download
             className="hidden min-h-11 items-center gap-2 rounded-full border border-violet/50 bg-violet px-4 py-2 text-sm font-semibold text-white shadow-glow transition hover:border-cyan/60 hover:bg-cyan focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan sm:inline-flex"
           >
-            <FileDown size={16} aria-hidden="true" />
+            <FileDown size={16} />
             Resume
           </a>
+
           <button
             type="button"
-            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              isOpen ? "Close navigation menu" : "Open navigation menu"
+            }
             aria-expanded={isOpen}
             onClick={() => setIsOpen((value) => !value)}
             className="grid h-11 w-11 place-items-center rounded-full border border-white/12 bg-white/[0.05] text-white backdrop-blur lg:hidden"
           >
-            {isOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </nav>
 
       <AnimatePresence>
-        {isOpen ? (
+        {isOpen && (
           <motion.div
-            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -12 }}
+            initial={
+              shouldReduceMotion
+                ? { opacity: 0 }
+                : { opacity: 0, y: -12 }
+            }
             animate={{ opacity: 1, y: 0 }}
-            exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -12 }}
+            exit={
+              shouldReduceMotion
+                ? { opacity: 0 }
+                : { opacity: 0, y: -12 }
+            }
             className="border-y border-white/10 bg-ink/94 px-5 py-5 backdrop-blur-xl lg:hidden"
           >
             <div className="mx-auto grid max-w-7xl gap-2">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={closeMenu}
-                  className="rounded-2xl px-4 py-3 text-base font-semibold text-white/76 transition hover:bg-white/8 hover:text-white"
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) => {
+                const id = item.href.replace("#", "");
+
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => {
+                      setActive(id);
+                      closeMenu();
+                    }}
+                    className="rounded-2xl px-4 py-3 text-base font-semibold text-white/76 transition hover:bg-white/8 hover:text-white"
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
+
               <a
                 href={siteConfig.resume}
                 download
                 onClick={closeMenu}
                 className="mt-2 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-violet px-5 py-3 text-sm font-semibold text-white"
               >
-                <FileDown size={17} aria-hidden="true" />
+                <FileDown size={17} />
                 Download Resume
               </a>
             </div>
           </motion.div>
-        ) : null}
+        )}
       </AnimatePresence>
     </header>
   );

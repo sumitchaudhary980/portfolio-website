@@ -26,11 +26,15 @@ export default function About() {
     <section id="about" className="section-shell overflow-hidden" aria-labelledby="about-title">
       <div className="container-shell grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
         <SectionReveal>
-          <SectionHeading id="about-title" eyebrow="About Me" title="Design-minded engineering for useful software." />
+          <SectionHeading id="about-title" eyebrow="About Me" title="Full Stack Developer in Kathmandu" />
           <p className="mt-7 text-lg leading-8 text-white/68">
-            I enjoy creating modern web applications that solve real-world problems. My interests include full-stack
-            development, scalable backend systems, responsive frontend interfaces, and continuously learning new
-            technologies. I believe great software combines performance, usability, and thoughtful design.
+            I'm Sumit Kumar Chaudhary, a Full Stack Developer based in Kathmandu, Nepal,
+            passionate about building modern, scalable, and user-friendly web
+            applications. I enjoy working across the entire development stack using
+            React, Next.js, Node.js, Laravel, MySQL, and MongoDB to create responsive
+            interfaces and reliable backend systems. I'm always learning new technologies
+            and enjoy solving real-world problems through clean, maintainable, and
+            efficient code.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
             {principles.map((item) => {
@@ -51,8 +55,8 @@ export default function About() {
           <div className="absolute bottom-8 right-0 h-px w-36 bg-gradient-to-l from-violet/40 to-transparent" aria-hidden="true" />
           <div className="glass relative overflow-hidden rounded-[8px] p-4">
             <Image
-              src="/illustrations/abstract-system.png"
-              alt="Abstract layered interface illustration representing scalable full stack systems"
+              src="/image/profile1.jpg"
+              alt="Profile Image"
               width={900}
               height={720}
               sizes="(min-width: 1024px) 45vw, 100vw"

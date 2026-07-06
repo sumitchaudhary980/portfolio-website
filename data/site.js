@@ -15,6 +15,7 @@ import {
   SiBootstrap,
   SiCss,
   SiExpress,
+  SiPhp,
   SiFigma,
   SiGit,
   SiGithub,
@@ -35,27 +36,34 @@ import {
 export const siteConfig = {
   name: "Sumit Kumar Chaudhary",
   title: "Full Stack Developer",
-  tagline: "Building scalable web applications with modern technologies, intuitive user experiences, and clean architecture.",
-  description:
-    "Portfolio of Sumit Kumar Chaudhary, a Full Stack Developer building modern, scalable, and user-friendly web applications with clean code and reliable backend architecture.",
+  tagline: "Full Stack Developer based in Kathmandu, Nepal, building modern, scalable, and user-friendly web applications with React, HTML5, CSS3, Bootstrap, JavaScript, PHP, Laravel, and Node.js", description:
+    "Sumit Kumar Chaudhary is a Full Stack Developer based in Kathmandu, Nepal. Explore my portfolio featuring React, HTML5, CSS3, Bootstrap, Javascript, PHP, Laravel, Node.js, and modern web application projects with scalable backend architecture and responsive user interfaces.",
   url: "https://sumitkchaudhary.com",
-  email: "sumit@example.com",
+  email: "jaiswalsumit1010@gmail.com",
   location: "Kathmandu, Nepal",
   resume: "/sumit-kumar-chaudhary-resume.pdf",
   keywords: [
     "Sumit Kumar Chaudhary",
-    "Full Stack Developer",
-    "Next.js developer",
-    "React developer",
-    "Laravel developer",
-    "Node.js developer",
+    "Sumit Chaudhary",
+    "Full Stack Developer Kathmandu",
+    "Full Stack Developer Nepal",
+    "Web Developer Kathmandu",
+    "React Developer Kathmandu",
+    "Node.js Developer Kathmandu",
+    "Laravel Developer Nepal",
+    "JavaScript Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Software Developer Nepal",
     "Portfolio",
-    "Kathmandu developer"
+    "React Portfolio",
+    "Kathmandu",
+    "Nepal"
   ],
   socials: {
-    github: "https://github.com/sumitkchaudhary",
-    linkedin: "https://www.linkedin.com/in/sumitkchaudhary",
-    instagram: "https://www.instagram.com/sumitkchaudhary"
+    github: "https://github.com/sumitchaudhary980",
+    linkedin: "https://www.linkedin.com/in/sumit-chaudhary-505129320/",
+    instagram: "https://www.instagram.com/sumitjaiswal.1"
   }
 };
 
@@ -96,6 +104,7 @@ export const skillCategories = [
     skills: [
       { name: "Node.js", icon: SiNodedotjs },
       { name: "Express.js", icon: SiExpress },
+      { name: "PHP", icon: SiPhp },
       { name: "Laravel", icon: SiLaravel }
     ]
   },
@@ -116,8 +125,7 @@ export const skillCategories = [
       { name: "GitHub", icon: SiGithub },
       { name: "VS Code", icon: SiVscodium },
       { name: "Postman", icon: SiPostman },
-      { name: "Figma", icon: SiFigma },
-      { name: "Vite", icon: SiVite }
+      { name: "Figma", icon: SiFigma }
     ]
   }
 ];
@@ -142,45 +150,115 @@ export const experience = [
 ];
 
 export const projects = [
+
   {
     title: "Kaiser Library",
     slug: "kaiser-library",
     image: "/projects/kaiser-library.png",
-    alt: "Placeholder interface preview for Kaiser Library showing a refined digital library dashboard",
+    alt: "Kaiser Library Management System admin dashboard for managing books, authors, and genres",
     description:
-      "A polished library management concept focused on searchable collections, clean resource discovery, and fast administrative workflows.",
-    tech: ["React", "Laravel", "MySQL", "Tailwind CSS"],
-    github: "https://github.com/sumitkchaudhary/kaiser-library",
-    demo: "#contact"
+      "A full-stack library management system featuring secure admin authentication, book, author, and genre management, Cloudinary-powered image uploads, search, pagination, and a responsive administrative dashboard.",
+    tech: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Node.js",
+      "Express.js",
+      "SQLite",
+      "Cloudinary"
+    ],
+    github: "https://github.com/sumitchaudhary980/library-management-system",
+    demo: "https://library-management-system-tvi5.onrender.com/"
   },
   {
-    title: "CineBook",
-    slug: "cinebook",
-    image: "/projects/cinebook.png",
-    alt: "Placeholder interface preview for CineBook showing a cinematic booking experience",
+    title: "Buyzon",
+    slug: "multi-vendor-ecommerce",
+    image: "/projects/buyzon.png",
+    alt: "Multi-vendor e-commerce platform with vendor dashboard, product management, and order processing",
     description:
-      "A movie booking experience designed around intuitive showtime discovery, seat selection, and a responsive checkout flow.",
-    tech: ["React", "Node.js", "Express.js", "MongoDB"],
-    github: "https://github.com/sumitkchaudhary/cinebook",
-    demo: "#contact"
+      "A full-stack multi-vendor e-commerce platform built with Laravel and React, featuring vendor dashboards, product variations, order management, Stripe payment integration, authentication, and background job processing.",
+    tech: [
+      "Laravel",
+      "React",
+      "PHP",
+      "MySQL",
+      "Stripe",
+      "JavaScript"
+    ],
+    github: "https://github.com/sumitchaudhary980/laravel-react-multi-vendor-ecommerce",
+    demo: "#"
   },
   {
-    title: "ResumeAI",
-    slug: "resumeai",
-    image: "/projects/resumeai.png",
-    alt: "Placeholder interface preview for ResumeAI showing resume analysis and scoring panels",
+    title: "ChatVibe",
+    slug: "chat-vibe",
+    image: "/projects/chat-vibe.png",
+    alt: "Real-time chat application with instant messaging, user authentication, and media sharing",
     description:
-      "An AI-assisted resume improvement tool concept for parsing resumes, surfacing gaps, and suggesting clearer role-focused copy.",
-    tech: ["Next.js", "React", "Tailwind CSS", "Node.js"],
-    github: "https://github.com/sumitkchaudhary/resumeai",
-    demo: "#contact"
-  }
+      "A full-stack real-time chat application built with React, Node.js, Express, and MongoDB. Features secure authentication, instant messaging with Socket.IO, Cloudinary-powered image sharing, and a responsive user interface.",
+    tech: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Socket.IO",
+      "Cloudinary"
+    ],
+    github: "https://github.com/sumitchaudhary980/fullstack-chat-app",
+    demo: "https://fullstack-chat-app-k0kb.onrender.com/"
+  },
+  {
+    title: "DesignAura",
+    slug: "designaura",
+    image: "/projects/designaura.png",
+    alt: "DesignAura e-commerce website for browsing and ordering custom mobile covers",
+    description:
+      "A Laravel-based e-commerce platform for custom mobile covers featuring product browsing, shopping cart, secure Razorpay payment integration, order management, and a responsive user experience.",
+    tech: [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Bootstrap",
+      "Razorpay"
+    ],
+    github: "https://github.com/sumitchaudhary980/mobile-cover-website",
+    demo: "https://designaura.lovestoblog.com/"
+  },
+  {
+    title: "ThinkBoard",
+    slug: "thinkboard",
+    image: "/projects/thinkboard.png",
+    alt: "ThinkBoard MERN note-taking application with a responsive dashboard for creating and managing notes",
+    description:
+      "A full-stack MERN note-taking application that allows users to create, edit, and delete notes through a responsive interface, with RESTful APIs, MongoDB storage, and Upstash Redis-powered rate limiting.",
+    tech: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "Upstash Redis"
+    ],
+    github: "https://github.com/sumitchaudhary980/mern-notes-website",
+    demo: "https://thinkboard-mx6j.onrender.com/"
+  },
+
 ];
 
 // Replace the project placeholder PNGs in public/projects with real product screenshots when they are ready.
-export const projectFilters = ["All", "React", "Laravel", "Node.js", "MySQL", "MongoDB", "Next.js"];
+export const projectFilters = ["All", "React", "Laravel", "Node.js", "MySQL", "SQLite", "MongoDB"];
 
 export const education = [
+  {
+    school: "Herald College",
+    location: "Naxal, Kathmandu",
+    degree: "BSc (Hons) in Computer Science",
+    period: "2025 - Present",
+    detail: "Affiliated with University of Wolverhampton, UK. Pursuing."
+  },
+
   {
     school: "RK University",
     location: "Rajkot, India",
@@ -188,19 +266,19 @@ export const education = [
     period: "July 2022 - April 2025",
     detail: "Grade A"
   },
+
   {
-    school: "Herald College",
-    location: "Naxal, Kathmandu",
-    degree: "BSc (Hons) in Computer Science",
-    period: "2025 - Present",
-    detail: "Affiliated with University of Wolverhampton, UK. Pursuing."
+    school: "Shree Janta Secondary School",
+    location: "Lahan-10, Nepal",
+    degree: "SEE",
+    period: "2013-2022",
+    detail: "GPA: 3.40"
   }
 ];
 
 export const contactMethods = [
   { label: "Email", value: siteConfig.email, href: `mailto:${siteConfig.email}`, icon: Mail },
-  { label: "GitHub", value: "github.com/sumitkchaudhary", href: siteConfig.socials.github, icon: Github },
-  { label: "LinkedIn", value: "linkedin.com/in/sumitkchaudhary", href: siteConfig.socials.linkedin, icon: Linkedin },
-  { label: "Instagram", value: "instagram.com/sumitkchaudhary", href: siteConfig.socials.instagram, icon: Instagram },
-  { label: "Figma", value: "Design-minded engineering", href: "#projects", icon: Figma }
+  { label: "GitHub", value: "github.com/sumitchaudhary980", href: siteConfig.socials.github, icon: Github },
+  { label: "LinkedIn", value: "https://www.linkedin.com/in/sumit-chaudhary-505129320/", href: siteConfig.socials.linkedin, icon: Linkedin },
+  { label: "Instagram", value: "instagram.com/sumitjaiswal.1", href: siteConfig.socials.instagram, icon: Instagram },
 ];
