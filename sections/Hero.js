@@ -52,19 +52,12 @@ export default function Hero() {
     mouseY.set((event.clientY - rect.top) / rect.height - 0.5);
   };
 
-  // Lighter letter transition for mobile: skip the 3D rotateX tip-in (which
-  // needs perspective + GPU headroom) and use a simple fade/slide instead.
-  const letterInitial = shouldReduceMotion
-    ? { opacity: 0 }
-    : isMobile
-    ? { opacity: 0, y: 14 }
-    : { opacity: 0, y: 24, rotateX: -65 };
-
-  const letterAnimate = shouldReduceMotion
-    ? { opacity: 1 }
-    : isMobile
-    ? { opacity: 1, y: 0 }
-    : { opacity: 1, y: 0, rotateX: 0 };
+  // Same rotateX tip-in animation on every device — the perspective fix
+  // below is what makes it render correctly on mobile, so we don't need
+  // to branch the animation values by device (that branching was causing
+  // letters to get stuck invisible on some mobile browsers).
+  const letterInitial = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 24, rotateX: -65 };
+  const letterAnimate = shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, rotateX: 0 };
 
   return (
     <section
