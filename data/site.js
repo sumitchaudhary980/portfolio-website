@@ -41,7 +41,7 @@ export const siteConfig = {
   url: "https://www.sumitkumarchaudhary.com.np",
   email: "jaiswalsumit1010@gmail.com",
   location: "Kathmandu, Nepal",
-  resume: "/sumit-kumar-chaudhary-resume.pdf",
+  resume: "/sumit-kumar-chaudhary.pdf",
   keywords: [
     "Sumit Kumar Chaudhary",
     "Sumit Chaudhary",
