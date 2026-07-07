@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { ArrowDown, ArrowRight, FileDown, Mail } from "lucide-react";
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 import MagneticButton from "@/components/MagneticButton";
@@ -15,24 +14,8 @@ const particles = Array.from({ length: 34 }, (_, index) => ({
   size: 2 + (index % 3)
 }));
 
-// Small helper hook — avoids pulling in an extra dependency for one media query.
-function useIsMobile(breakpoint = 768) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mql = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
-    const update = () => setIsMobile(mql.matches);
-    update();
-    mql.addEventListener("change", update);
-    return () => mql.removeEventListener("change", update);
-  }, [breakpoint]);
-
-  return isMobile;
-}
-
 export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
-  const isMobile = useIsMobile();
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const smoothX = useSpring(mouseX, { stiffness: 80, damping: 24 });
@@ -41,29 +24,18 @@ export default function Hero() {
   const gradientY = useTransform(smoothY, [-1, 1], [-18, 18]);
   const inverseGradientX = useTransform(gradientX, (value) => -value);
 
-  // Only show a fraction of the particle field on mobile — 34 concurrently
-  // looping animations plus blurred gradients is a lot for weaker GPUs.
-  const visibleParticles = isMobile ? particles.filter((p) => p.id % 3 === 0) : particles;
-
   const handleMouseMove = (event) => {
-    if (shouldReduceMotion || isMobile) return; // no mouse on touch devices anyway
+    if (shouldReduceMotion) return;
     const rect = event.currentTarget.getBoundingClientRect();
     mouseX.set((event.clientX - rect.left) / rect.width - 0.5);
     mouseY.set((event.clientY - rect.top) / rect.height - 0.5);
   };
 
-  // Same rotateX tip-in animation on every device — the perspective fix
-  // below is what makes it render correctly on mobile, so we don't need
-  // to branch the animation values by device (that branching was causing
-  // letters to get stuck invisible on some mobile browsers).
-  const letterInitial = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 24, rotateX: -65 };
-  const letterAnimate = shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, rotateX: 0 };
-
   return (
     <section
       id="home"
       onMouseMove={handleMouseMove}
-      className="relative grid min-h-[100dvh] overflow-hidden px-5 pb-24 pt-32 md:min-h-screen md:px-8 md:pt-36"
+      className="relative grid min-h-screen overflow-hidden px-5 pb-24 pt-32 md:px-8 md:pt-36"
       aria-labelledby="hero-title"
     >
       <motion.div
@@ -74,16 +46,16 @@ export default function Hero() {
         aria-hidden="true"
       >
         <motion.div
-          className="absolute inset-x-0 top-[-18%] h-[58rem] bg-[radial-gradient(ellipse_at_center,rgba(124,58,237,0.28),transparent_58%)] blur-2xl md:inset-x-[-10%] md:blur-3xl"
-          style={shouldReduceMotion || isMobile ? undefined : { x: gradientX, y: gradientY }}
+          className="absolute inset-x-0 top-[-18%] h-[58rem] bg-[radial-gradient(ellipse_at_center,rgba(124,58,237,0.28),transparent_58%)] blur-3xl md:inset-x-[-10%]"
+          style={shouldReduceMotion ? undefined : { x: gradientX, y: gradientY }}
         />
         <motion.div
-          className="absolute bottom-[-22%] left-0 right-0 h-[48rem] w-full bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.18),transparent_62%)] blur-2xl md:left-auto md:right-[-8%] md:w-[58rem] md:blur-3xl"
-          style={shouldReduceMotion || isMobile ? undefined : { x: inverseGradientX, y: gradientY }}
+          className="absolute bottom-[-22%] left-0 right-0 h-[48rem] w-full bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.18),transparent_62%)] blur-3xl md:left-auto md:right-[-8%] md:w-[58rem]"
+          style={shouldReduceMotion ? undefined : { x: inverseGradientX, y: gradientY }}
         />
         <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0.08),transparent_28%,rgba(34,197,94,0.08)_58%,transparent_76%)]" />
         <div className="absolute inset-0 bg-radial-grid bg-[length:34px_34px] opacity-[0.16]" />
-        {visibleParticles.map((particle) => (
+        {particles.map((particle) => (
           <motion.span
             key={particle.id}
             className="absolute rounded-full bg-white/42"
@@ -120,7 +92,6 @@ export default function Hero() {
           <h1
             id="hero-title"
             aria-label={siteConfig.name}
-            style={{ perspective: 800 }}
             className="text-gradient mx-auto min-h-[7.8rem] max-w-6xl text-balance text-5xl font-black leading-[0.98] md:min-h-[11rem] md:text-7xl lg:text-8xl xl:text-9xl"
           >
             <span aria-hidden="true">
@@ -132,8 +103,8 @@ export default function Hero() {
                       <motion.span
                         key={`${word}-${letter}-${letterIndex}`}
                         className="inline-block"
-                        initial={letterInitial}
-                        animate={letterAnimate}
+                        initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 24, rotateX: -65 }}
+                        animate={{ opacity: 1, y: 0, rotateX: 0 }}
                         transition={{
                           delay: shouldReduceMotion ? 0 : 0.42 + index * 0.028,
                           duration: shouldReduceMotion ? 0.1 : 0.54,
