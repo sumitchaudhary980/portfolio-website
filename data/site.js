@@ -245,10 +245,27 @@ export const projects = [
     demo: "https://thinkboard-mx6j.onrender.com/"
   },
 
+  {
+    title: "Escape Room",
+    slug: "escape-room",
+    image: "/projects/escape-room.png",
+    alt: "Escape Room Unity 3D first-person puzzle game featuring interactive environments and timed escape challenges",
+    description:
+      "A first-person 3D escape room game built with Unity where players explore immersive environments, discover hidden clues, solve interactive puzzles, and unlock doors before the countdown timer expires. Developed using Unity URP and C#, the project focuses on gameplay mechanics, puzzle design, player interaction, and immersive level design.",
+    tech: [
+      "Unity",
+      "C#",
+      "Universal Render Pipeline (URP)",
+      "Unity Input System",
+      "Git"
+    ],
+    github: "https://github.com/sumitchaudhary980/escape-room",
+    demo: "#"
+  },
 ];
 
 // Replace the project placeholder PNGs in public/projects with real product screenshots when they are ready.
-export const projectFilters = ["All", "React", "Laravel", "Node.js", "MySQL", "SQLite", "MongoDB"];
+export const projectFilters = ["All", "React", "Laravel", "Node.js", "MySQL", "SQLite", "MongoDB", "C#", "Unity", "Express.js", "Tailwind CSS", "Bootstrap", "JavaScript", "PHP"];
 
 export const education = [
   {
