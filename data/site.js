@@ -152,10 +152,10 @@ export const experience = [
 export const projects = [
 
   {
-    title: "Kaiser Library",
-    slug: "kaiser-library",
-    image: "/projects/kaiser-library.png",
-    alt: "Kaiser Library Management System admin dashboard for managing books, authors, and genres",
+    title: "Heritage Library",
+    slug: "Heritage-library",
+    image: "/projects/heritage-library.png",
+    alt: "Heritage Library Management System admin dashboard for managing books, authors, and genres",
     description:
       "A full-stack library management system featuring secure admin authentication, book, author, and genre management, Cloudinary-powered image uploads, search, pagination, and a responsive administrative dashboard.",
     tech: [
@@ -168,7 +168,7 @@ export const projects = [
       "Cloudinary"
     ],
     github: "https://github.com/sumitchaudhary980/library-management-system",
-    demo: "https://library-management-system-tvi5.onrender.com/"
+    demo: "https://www.heritagedigitallibrary.me/"
   },
   {
     title: "Buyzon",
