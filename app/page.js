@@ -5,8 +5,13 @@ import Experience from "@/sections/Experience";
 import Hero from "@/sections/Hero";
 import Projects from "@/sections/Projects";
 import Skills from "@/sections/Skills";
+import CustomCursor from "@/components/CustomCursor";
+import DeveloperTerminal from "@/components/DeveloperTerminal";
 import Footer from "@/components/Footer";
+import GitHubActivity from "@/components/GitHubActivity";
 import Header from "@/components/Header";
+import PortfolioAssistant from "@/components/PortfolioAssistant";
+import SpotifyNowListening from "@/components/SpotifyNowListening";
 import SocialDock from "@/components/SocialDock";
 import { siteConfig } from "@/data/site";
 
@@ -64,13 +69,18 @@ export default function HomePage() {
       <main id="main-content">
         <Hero />
         <About />
+        <DeveloperTerminal />
         <Skills />
         <Experience />
         <Projects />
+        <GitHubActivity />
+        <SpotifyNowListening />
         <Education />
         <Contact />
       </main>
       <Footer />
+      <PortfolioAssistant />
+      <CustomCursor />
     </>
   );
 }
