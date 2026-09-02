@@ -5,6 +5,21 @@ import SectionHeading from "@/components/SectionHeading";
 import useVSCodeLiveStatus from "@/hooks/useVSCodeLiveStatus";
 import { viewportOnce } from "@/utils/motion";
 
+function formatLabel(value, fallback = "Not available") {
+  return value || fallback;
+}
+
+function formatLanguage(value) {
+  if (!value) return "Not available";
+
+  const languageMap = {
+    javascript: "JavaScript",
+    typescript: "TypeScript"
+  };
+
+  return languageMap[value.toLowerCase()] || value;
+}
+
 export default function VSCodeLiveSection() {
   const shouldReduceMotion = useReducedMotion();
   const status = useVSCodeLiveStatus();
@@ -35,7 +50,7 @@ export default function VSCodeLiveSection() {
               <h3 className="mt-3 text-3xl font-bold text-white">{status.coding ? "Coding" : "Offline"}</h3>
               <p className="mt-2 text-sm leading-6 text-white/56">
                 {status.coding
-                  ? `Active heartbeat received${status.language ? ` for ${status.language}` : ""}.`
+                  ? `Active heartbeat received${status.project ? ` for ${status.project}` : ""}.`
                   : "No recent VS Code heartbeat has been received."}
               </p>
             </div>
@@ -49,6 +64,24 @@ export default function VSCodeLiveSection() {
               Last heartbeat: {new Date(status.lastSeen).toLocaleString()}
             </p>
           ) : null}
+          <dl className="mt-5 grid gap-3 border-t border-white/10 pt-5 sm:grid-cols-2">
+            <div className="rounded-[8px] border border-white/10 bg-white/[0.035] p-4">
+              <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-white/42">Status</dt>
+              <dd className="mt-2 font-semibold text-white">{status.status || (status.coding ? "Coding" : "Offline")}</dd>
+            </div>
+            <div className="rounded-[8px] border border-white/10 bg-white/[0.035] p-4">
+              <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-white/42">Project</dt>
+              <dd className="mt-2 truncate font-semibold text-white">{formatLabel(status.project)}</dd>
+            </div>
+            <div className="rounded-[8px] border border-white/10 bg-white/[0.035] p-4">
+              <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-white/42">File</dt>
+              <dd className="mt-2 truncate font-semibold text-white">{formatLabel(status.file)}</dd>
+            </div>
+            <div className="rounded-[8px] border border-white/10 bg-white/[0.035] p-4">
+              <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-white/42">Language</dt>
+              <dd className="mt-2 truncate font-semibold text-white">{formatLanguage(status.language)}</dd>
+            </div>
+          </dl>
         </motion.div>
       </div>
     </section>

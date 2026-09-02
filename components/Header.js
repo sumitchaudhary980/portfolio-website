@@ -115,12 +115,12 @@ export default function Header() {
       </a>
 
       <nav
-        className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-5 md:px-8"
+        className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-3 px-5 md:px-8"
         aria-label="Primary"
       >
         <a
           href="#home"
-          className="group flex items-center gap-3"
+          className="group flex shrink-0 items-center gap-3"
           aria-label={`${siteConfig.name} home`}
         >
           <span className="grid h-10 w-10 place-items-center rounded-full border border-white/14 bg-white/8 text-sm font-black text-white shadow-cyan transition group-hover:border-cyan/60">
@@ -132,7 +132,7 @@ export default function Header() {
           </span>
         </a>
 
-        <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] p-1 backdrop-blur-xl lg:flex">
+        <div className="hidden min-w-0 items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] p-1 backdrop-blur-xl xl:flex">
           {navItems.map((item) => {
             const id = item.href.replace("#", "");
             const isActive = active === id;
@@ -142,7 +142,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setActive(id)}
-                className="relative rounded-full px-4 py-2 text-sm font-medium text-white/64 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan"
+                className="relative rounded-full px-3 py-2 text-sm font-medium text-white/64 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan 2xl:px-4"
               >
                 <span className="relative z-10">{item.label}</span>
 
@@ -172,7 +172,7 @@ export default function Header() {
           })}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex min-w-0 shrink items-center justify-end gap-2 sm:gap-3">
           <button
             type="button"
             onClick={scrollToSpotify}
@@ -222,7 +222,7 @@ export default function Header() {
             }
             aria-expanded={isOpen}
             onClick={() => setIsOpen((value) => !value)}
-            className="grid h-11 w-11 place-items-center rounded-full border border-white/12 bg-white/[0.05] text-white backdrop-blur lg:hidden"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/12 bg-white/[0.05] text-white backdrop-blur xl:hidden"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -243,7 +243,7 @@ export default function Header() {
                 ? { opacity: 0 }
                 : { opacity: 0, y: -12 }
             }
-            className="border-y border-white/10 bg-ink/94 px-5 py-5 backdrop-blur-xl lg:hidden"
+            className="border-y border-white/10 bg-ink/94 px-5 py-5 backdrop-blur-xl xl:hidden"
           >
             <div className="mx-auto grid max-w-7xl gap-2">
               {navItems.map((item) => {

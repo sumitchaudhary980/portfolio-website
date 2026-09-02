@@ -39,9 +39,32 @@ function sanitize(value, maxLength = 100) {
 	}
 
 	return value
+		.replace(/\\/g, "/")
 		.replace(/[^\w\s.#/+\-()]/g, "")
 		.trim()
 		.slice(0, maxLength);
+}
+
+function isProtectedFileName(value) {
+	if (!value) {
+		return false;
+	}
+
+	const normalized = value.replace(/\\/g, "/").toLowerCase();
+	const fileName = normalized.split("/").pop() || normalized;
+	const protectedPatterns = [
+		/^\.env($|\.)/,
+		/secret/,
+		/credential/,
+		/password/,
+		/passwd/,
+		/token/,
+		/apikey/,
+		/api-key/,
+		/private-key/
+	];
+
+	return protectedPatterns.some((pattern) => pattern.test(fileName));
 }
 
 function safeStatus() {
@@ -58,7 +81,11 @@ function safeStatus() {
 		coding: Boolean(isFresh),
 		status: isFresh ? "Coding" : "Offline",
 		project: isFresh ? latestHeartbeat.project : "",
-		file: isFresh ? latestHeartbeat.file : "",
+		file: isFresh
+			? isProtectedFileName(latestHeartbeat.file)
+				? "Protected file"
+				: latestHeartbeat.file
+			: "",
 		language: isFresh ? latestHeartbeat.language : "",
 		lastSeen: latestHeartbeat.lastSeen,
 		timeoutMs: heartbeatTimeoutMs
