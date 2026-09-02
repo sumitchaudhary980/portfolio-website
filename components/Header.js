@@ -98,6 +98,9 @@ export default function Header() {
   const isSpotifyPlaying = spotifyStatus === "ready" && spotifyTrack?.hasTrack && spotifyTrack.isPlaying;
   const spotifyLabel = isSpotifyPlaying ? spotifyTrack.title : "Not Listening";
   const spotifyArtist = isSpotifyPlaying ? spotifyTrack.artist : "";
+  const spotifyDisplay = spotifyArtist
+    ? `${spotifyLabel} - ${spotifyArtist}`
+    : spotifyLabel;
 
   return (
     <header
@@ -115,12 +118,12 @@ export default function Header() {
       </a>
 
       <nav
-        className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-3 px-5 md:px-8"
+        className="mx-auto grid h-auto min-h-20 w-full max-w-[110rem] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 px-3 py-3 min-[431px]:h-20 min-[431px]:py-0 sm:gap-4 sm:px-5 md:px-8"
         aria-label="Primary"
       >
         <a
           href="#home"
-          className="group flex shrink-0 items-center gap-3"
+          className="group flex shrink-0 items-center gap-3 max-[430px]:col-start-1 max-[430px]:row-start-1"
           aria-label={`${siteConfig.name} home`}
         >
           <span className="grid h-10 w-10 place-items-center rounded-full border border-white/14 bg-white/8 text-sm font-black text-white shadow-cyan transition group-hover:border-cyan/60">
@@ -132,7 +135,7 @@ export default function Header() {
           </span>
         </a>
 
-        <div className="hidden min-w-0 items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] p-1 backdrop-blur-xl xl:flex">
+        <div className="hidden min-w-0 max-w-full justify-self-center overflow-hidden rounded-full border border-white/10 bg-white/[0.04] p-1 backdrop-blur-xl min-[1500px]:flex min-[1500px]:items-center min-[1500px]:gap-1">
           {navItems.map((item) => {
             const id = item.href.replace("#", "");
             const isActive = active === id;
@@ -172,48 +175,49 @@ export default function Header() {
           })}
         </div>
 
-        <div className="flex min-w-0 shrink items-center justify-end gap-2 sm:gap-3">
-          <button
-            type="button"
-            onClick={scrollToSpotify}
-            className={`group inline-flex h-10 w-auto max-w-[8.5rem] shrink-0 items-center justify-start gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-left text-xs font-semibold text-white/72 backdrop-blur transition hover:bg-green/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan min-[380px]:max-w-[12rem] sm:max-w-[16rem] lg:max-w-[19rem] ${
-              isSpotifyPlaying ? "hover:border-green/45" : "hover:border-white/20"
-            }`}
-            aria-label={
-              isSpotifyPlaying
-                ? `Now listening to ${spotifyTrack.title} by ${spotifyTrack.artist}. Open the Spotify section.`
-                : "Spotify status: Not Listening. Open the Spotify section."
-            }
-          >
-            <SpotifyMark className="h-5 w-5 shrink-0 text-green" />
-            <span className="h-1 w-1 shrink-0 rounded-full bg-white/32" aria-hidden="true" />
-            {isSpotifyPlaying && spotifyTrack.albumArt ? (
-              <img
-                src={spotifyTrack.albumArt}
-                alt=""
-                className="hidden h-6 w-6 shrink-0 rounded-full object-cover sm:block"
-                loading="lazy"
-              />
-            ) : null}
-            {isSpotifyPlaying ? (
-              <span className="hidden shrink-0 items-center gap-0.5 min-[420px]:flex" aria-hidden="true">
-                <span className="h-2 w-0.5 animate-pulse rounded-full bg-green" />
-                <span className="h-3 w-0.5 animate-pulse rounded-full bg-cyan [animation-delay:120ms]" />
-                <span className="h-1.5 w-0.5 animate-pulse rounded-full bg-violet [animation-delay:240ms]" />
-              </span>
-            ) : null}
-            <span className="min-w-0 truncate">
-              <span className={isSpotifyPlaying ? "text-white" : "text-white/50"}>{spotifyLabel}</span>
-              {spotifyArtist ? (
-                <>
-                  <span className="hidden px-1 text-white/26 sm:inline" aria-hidden="true">-</span>
-                  <span className="hidden text-white/46 sm:inline">{spotifyArtist}</span>
-                </>
+        <div className="contents min-[431px]:flex min-[431px]:min-w-0 min-[431px]:items-center min-[431px]:justify-end min-[431px]:gap-1 min-[431px]:justify-self-end sm:gap-2 lg:gap-3">
+          <div className="flex min-w-0 items-center justify-center gap-1 max-[430px]:col-span-3 max-[430px]:row-start-2 max-[430px]:w-full min-[431px]:justify-end sm:gap-2 lg:gap-3">
+            <button
+              type="button"
+              onClick={scrollToSpotify}
+              className={`group inline-flex h-10 w-auto max-w-[8.5rem] shrink-0 items-center justify-start gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2 py-2 text-left text-xs font-semibold text-white/72 backdrop-blur transition hover:bg-green/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan min-[380px]:max-w-[10rem] sm:max-w-[13rem] sm:gap-2 sm:px-3 lg:max-w-[15rem] min-[1500px]:max-w-[16rem] 2xl:max-w-[18rem] ${
+                isSpotifyPlaying ? "hover:border-green/45" : "hover:border-white/20"
+              }`}
+              aria-label={
+                isSpotifyPlaying
+                  ? `Now listening to ${spotifyTrack.title} by ${spotifyTrack.artist}. Open the Spotify section.`
+                  : "Spotify status: Not Listening. Open the Spotify section."
+              }
+            >
+              <SpotifyMark className="h-5 w-5 shrink-0 text-green" />
+              <span className="h-1 w-1 shrink-0 rounded-full bg-white/32" aria-hidden="true" />
+              {isSpotifyPlaying && spotifyTrack.albumArt ? (
+                <img
+                  src={spotifyTrack.albumArt}
+                  alt=""
+                  className="hidden h-6 w-6 shrink-0 rounded-full object-cover min-[1500px]:block"
+                  loading="lazy"
+                />
               ) : null}
-            </span>
-          </button>
+              {isSpotifyPlaying ? (
+                <span className="hidden shrink-0 items-center gap-0.5 min-[420px]:flex" aria-hidden="true">
+                  <span className="h-2 w-0.5 animate-pulse rounded-full bg-green" />
+                  <span className="h-3 w-0.5 animate-pulse rounded-full bg-cyan [animation-delay:120ms]" />
+                  <span className="h-1.5 w-0.5 animate-pulse rounded-full bg-violet [animation-delay:240ms]" />
+                </span>
+              ) : null}
+              <span className="min-w-0 overflow-hidden whitespace-nowrap">
+                <span className={`block truncate sm:hidden ${isSpotifyPlaying ? "text-white" : "text-white/50"}`}>
+                  {spotifyLabel}
+                </span>
+                <span className={`hidden truncate sm:block ${isSpotifyPlaying ? "text-white" : "text-white/50"}`}>
+                  {spotifyDisplay}
+                </span>
+              </span>
+            </button>
 
-          <VSCodeLiveBadge onNavigate={scrollToVSCode} />
+            <VSCodeLiveBadge onNavigate={scrollToVSCode} />
+          </div>
 
           <button
             type="button"
@@ -222,7 +226,7 @@ export default function Header() {
             }
             aria-expanded={isOpen}
             onClick={() => setIsOpen((value) => !value)}
-            className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/12 bg-white/[0.05] text-white backdrop-blur xl:hidden"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/12 bg-white/[0.05] text-white backdrop-blur max-[430px]:col-start-3 max-[430px]:row-start-1 max-[430px]:justify-self-end min-[1500px]:hidden"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -243,7 +247,7 @@ export default function Header() {
                 ? { opacity: 0 }
                 : { opacity: 0, y: -12 }
             }
-            className="border-y border-white/10 bg-ink/94 px-5 py-5 backdrop-blur-xl xl:hidden"
+            className="border-y border-white/10 bg-ink/94 px-5 py-5 backdrop-blur-xl min-[1500px]:hidden"
           >
             <div className="mx-auto grid max-w-7xl gap-2">
               {navItems.map((item) => {

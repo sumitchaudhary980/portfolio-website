@@ -7,12 +7,13 @@ export default function VSCodeLiveBadge({ onNavigate }) {
   const label = status.coding ? "Coding" : "Offline";
   const mobileLabel = status.coding ? "Live" : "Offline";
   const projectLabel = status.coding && status.project ? status.project : "";
+  const desktopLabel = projectLabel ? `${label} - ${projectLabel}` : label;
 
   return (
     <button
       type="button"
       onClick={onNavigate}
-      className={`group inline-flex h-10 w-auto max-w-[7.5rem] shrink-0 items-center justify-start gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-left text-xs font-semibold text-white/72 backdrop-blur transition hover:bg-cyan/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan min-[380px]:max-w-[10rem] sm:max-w-[14rem] xl:max-w-[16rem] ${
+      className={`group inline-flex h-10 w-auto max-w-[5.5rem] shrink-0 items-center justify-start gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2 py-2 text-left text-xs font-semibold text-white/72 backdrop-blur transition hover:bg-cyan/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan min-[380px]:max-w-[8.5rem] sm:max-w-[11rem] sm:gap-2 sm:px-3 lg:max-w-[13rem] min-[1500px]:max-w-[15rem] 2xl:max-w-[17rem] ${
         status.coding ? "hover:border-cyan/45" : "hover:border-white/20"
       }`}
       aria-label={`VS Code status: ${projectLabel ? `${label} in ${projectLabel}` : label}. Open the VS Code live section.`}
@@ -22,19 +23,16 @@ export default function VSCodeLiveBadge({ onNavigate }) {
       {status.coding ? (
         <span className="h-2 w-2 shrink-0 rounded-full bg-cyan shadow-[0_0_14px_rgba(6,182,212,0.7)] animate-pulse" aria-hidden="true" />
       ) : null}
-      <span className="min-w-0 truncate">
-        <span className={status.coding ? "hidden text-white min-[380px]:inline" : "hidden text-white/50 min-[380px]:inline"}>
-          {label}
-        </span>
-        <span className={status.coding ? "text-white min-[380px]:hidden" : "text-white/50 min-[380px]:hidden"}>
+      <span className="min-w-0 overflow-hidden whitespace-nowrap">
+        <span className={status.coding ? "block truncate text-white min-[380px]:hidden" : "block truncate text-white/50 min-[380px]:hidden"}>
           {mobileLabel}
         </span>
-        {projectLabel ? (
-          <>
-            <span className="hidden px-1 text-white/26 sm:inline" aria-hidden="true">-</span>
-            <span className="hidden text-white/46 sm:inline">{projectLabel}</span>
-          </>
-        ) : null}
+        <span className={status.coding ? "hidden truncate text-white min-[380px]:block sm:hidden" : "hidden truncate text-white/50 min-[380px]:block sm:hidden"}>
+          {label}
+        </span>
+        <span className={status.coding ? "hidden truncate text-white sm:block" : "hidden truncate text-white/50 sm:block"}>
+          {desktopLabel}
+        </span>
       </span>
     </button>
   );
