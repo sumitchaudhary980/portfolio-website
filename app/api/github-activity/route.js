@@ -13,11 +13,27 @@ const headers = {
   Accept: "application/vnd.github+json, text/html",
   "User-Agent": "sumit-portfolio"
 };
+const graphqlEndpoint = "https://api.github.com/graphql";
+const contributionLevelMap = {
+  NONE: 0,
+  FIRST_QUARTILE: 1,
+  SECOND_QUARTILE: 2,
+  THIRD_QUARTILE: 3,
+  FOURTH_QUARTILE: 4
+};
 
-export const revalidate = 3600;
+export const revalidate = 300;
+
+function githubHeaders() {
+  const token = process.env.GITHUB_TOKEN;
+
+  return token
+    ? { ...headers, Authorization: `Bearer ${token}` }
+    : headers;
+}
 
 async function fetchJson(url) {
-  const response = await fetch(url, { headers, next: { revalidate } });
+  const response = await fetch(url, { headers: githubHeaders(), next: { revalidate } });
   if (!response.ok) {
     throw new Error(`GitHub request failed: ${response.status}`);
   }
@@ -70,6 +86,88 @@ function parseContributionCalendar(html) {
   };
 }
 
+async function fetchContributionCalendar() {
+  const token = process.env.GITHUB_TOKEN;
+
+  if (token) {
+    try {
+      const response = await fetch(graphqlEndpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/vnd.github+json",
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+          "User-Agent": "sumit-portfolio"
+        },
+        body: JSON.stringify({
+          query: `
+            query PortfolioContributions($login: String!) {
+              user(login: $login) {
+                contributionsCollection {
+                  contributionCalendar {
+                    totalContributions
+                    weeks {
+                      contributionDays {
+                        date
+                        contributionCount
+                        contributionLevel
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          `,
+          variables: { login: username }
+        }),
+        next: { revalidate }
+      });
+
+      if (!response.ok) {
+        throw new Error(`GitHub GraphQL request failed: ${response.status}`);
+      }
+
+      const payload = await response.json();
+
+      if (payload.errors?.length) {
+        throw new Error(payload.errors[0].message || "GitHub GraphQL error");
+      }
+
+      const calendar =
+        payload.data?.user?.contributionsCollection?.contributionCalendar;
+
+      if (!calendar?.weeks?.length) {
+        throw new Error("GitHub GraphQL contribution calendar was empty.");
+      }
+
+      const days = calendar.weeks
+        .flatMap((week) => week.contributionDays || [])
+        .map((day) => ({
+          date: day.date,
+          count: day.contributionCount,
+          level: contributionLevelMap[day.contributionLevel] || 0,
+          tooltip: `${day.contributionCount} contribution${day.contributionCount === 1 ? "" : "s"} on ${day.date}`
+        }))
+        .sort((a, b) => a.date.localeCompare(b.date));
+
+      return {
+        days,
+        totalContributions: days.reduce((sum, day) => sum + day.count, 0),
+        displayedTotal: calendar.totalContributions
+      };
+    } catch {
+      // Keep the portfolio resilient if the optional owner token is missing permissions
+      // or GitHub GraphQL is unavailable.
+    }
+  }
+
+  const contributionsHtml = await fetchText(
+    `https://github.com/users/${username}/contributions`
+  );
+
+  return parseContributionCalendar(contributionsHtml);
+}
+
 function calculateStreaks(days) {
   let longestStreak = 0;
   let runningStreak = 0;
@@ -94,13 +192,12 @@ function calculateStreaks(days) {
 
 export async function GET() {
   try {
-    const [user, events, repos, contributionsHtml] = await Promise.all([
+    const [user, events, repos, contributionCalendar] = await Promise.all([
       fetchJson(`https://api.github.com/users/${username}`),
       fetchJson(`https://api.github.com/users/${username}/events/public?per_page=100`),
       fetchJson(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`),
-      fetchText(`https://github.com/users/${username}/contributions`)
+      fetchContributionCalendar()
     ]);
-    const contributionCalendar = parseContributionCalendar(contributionsHtml);
     const streaks = calculateStreaks(contributionCalendar.days);
 
     return NextResponse.json({
