@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { FileDown, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { navItems, siteConfig } from "@/data/site";
+import useSpotifyNowPlaying from "@/hooks/useSpotifyNowPlaying";
+import VSCodeLiveBadge from "@/components/VSCodeLiveBadge";
 
 const sectionIds = navItems.map((item) => item.href.replace("#", ""));
 
@@ -12,6 +14,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+  const { status: spotifyStatus, track: spotifyTrack } = useSpotifyNowPlaying();
 
   // Header background on scroll
   useEffect(() => {
@@ -71,6 +74,30 @@ export default function Header() {
   }, []);
 
   const closeMenu = () => setIsOpen(false);
+
+  const scrollToSpotify = () => {
+    closeMenu();
+    window.setTimeout(() => {
+      document.getElementById("spotify-now-listening")?.scrollIntoView({
+        behavior: shouldReduceMotion ? "auto" : "smooth",
+        block: "start"
+      });
+    }, isOpen ? 80 : 0);
+  };
+
+  const scrollToVSCode = () => {
+    closeMenu();
+    window.setTimeout(() => {
+      document.getElementById("vscode-live")?.scrollIntoView({
+        behavior: shouldReduceMotion ? "auto" : "smooth",
+        block: "start"
+      });
+    }, isOpen ? 80 : 0);
+  };
+
+  const isSpotifyPlaying = spotifyStatus === "ready" && spotifyTrack?.hasTrack && spotifyTrack.isPlaying;
+  const spotifyLabel = isSpotifyPlaying ? spotifyTrack.title : "Not Listening";
+  const spotifyArtist = isSpotifyPlaying ? spotifyTrack.artist : "";
 
   return (
     <header
@@ -146,14 +173,47 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-3">
-          <a
-            href={siteConfig.resume}
-            download
-            className="hidden min-h-11 items-center gap-2 rounded-full border border-violet/50 bg-violet px-4 py-2 text-sm font-semibold text-white shadow-glow transition hover:border-cyan/60 hover:bg-cyan focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan sm:inline-flex"
+          <button
+            type="button"
+            onClick={scrollToSpotify}
+            className={`group inline-flex h-10 w-auto max-w-[8.5rem] shrink-0 items-center justify-start gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-left text-xs font-semibold text-white/72 backdrop-blur transition hover:bg-green/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan min-[380px]:max-w-[12rem] sm:max-w-[16rem] lg:max-w-[19rem] ${
+              isSpotifyPlaying ? "hover:border-green/45" : "hover:border-white/20"
+            }`}
+            aria-label={
+              isSpotifyPlaying
+                ? `Now listening to ${spotifyTrack.title} by ${spotifyTrack.artist}. Open the Spotify section.`
+                : "Spotify status: Not Listening. Open the Spotify section."
+            }
           >
-            <FileDown size={16} />
-            Resume
-          </a>
+            <SpotifyMark className="h-5 w-5 shrink-0 text-green" />
+            <span className="h-1 w-1 shrink-0 rounded-full bg-white/32" aria-hidden="true" />
+            {isSpotifyPlaying && spotifyTrack.albumArt ? (
+              <img
+                src={spotifyTrack.albumArt}
+                alt=""
+                className="hidden h-6 w-6 shrink-0 rounded-full object-cover sm:block"
+                loading="lazy"
+              />
+            ) : null}
+            {isSpotifyPlaying ? (
+              <span className="hidden shrink-0 items-center gap-0.5 min-[420px]:flex" aria-hidden="true">
+                <span className="h-2 w-0.5 animate-pulse rounded-full bg-green" />
+                <span className="h-3 w-0.5 animate-pulse rounded-full bg-cyan [animation-delay:120ms]" />
+                <span className="h-1.5 w-0.5 animate-pulse rounded-full bg-violet [animation-delay:240ms]" />
+              </span>
+            ) : null}
+            <span className="min-w-0 truncate">
+              <span className={isSpotifyPlaying ? "text-white" : "text-white/50"}>{spotifyLabel}</span>
+              {spotifyArtist ? (
+                <>
+                  <span className="hidden px-1 text-white/26 sm:inline" aria-hidden="true">-</span>
+                  <span className="hidden text-white/46 sm:inline">{spotifyArtist}</span>
+                </>
+              ) : null}
+            </span>
+          </button>
+
+          <VSCodeLiveBadge onNavigate={scrollToVSCode} />
 
           <button
             type="button"
@@ -204,19 +264,21 @@ export default function Header() {
                 );
               })}
 
-              <a
-                href={siteConfig.resume}
-                download
-                onClick={closeMenu}
-                className="mt-2 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-violet px-5 py-3 text-sm font-semibold text-white"
-              >
-                <FileDown size={17} />
-                Download Resume
-              </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </header>
+  );
+}
+
+function SpotifyMark({ className = "" }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true" focusable="false">
+      <path
+        fill="currentColor"
+        d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.59 14.42a.76.76 0 0 1-1.04.25 9.4 9.4 0 0 0-5.18-1.2 12.17 12.17 0 0 0-2.92.48.76.76 0 0 1-.44-1.45 13.8 13.8 0 0 1 3.3-.55 10.77 10.77 0 0 1 5.94 1.42c.36.22.47.69.25 1.05Zm1.23-2.73a.9.9 0 0 1-1.24.3 11.91 11.91 0 0 0-6.27-1.47 13.67 13.67 0 0 0-3.56.58.9.9 0 0 1-.53-1.72 15.35 15.35 0 0 1 4.03-.66 13.56 13.56 0 0 1 7.27 1.73.9.9 0 0 1 .3 1.24Zm.13-2.9a15.51 15.51 0 0 0-8.15-1.74 16.33 16.33 0 0 0-3.94.6 1.04 1.04 0 1 1-.6-1.98 18.15 18.15 0 0 1 4.46-.69 17.48 17.48 0 0 1 9.22 2 1.04 1.04 0 1 1-.99 1.82Z"
+      />
+    </svg>
   );
 }

@@ -13,6 +13,7 @@ import Header from "@/components/Header";
 import PortfolioAssistant from "@/components/PortfolioAssistant";
 import SpotifyNowListening from "@/components/SpotifyNowListening";
 import SocialDock from "@/components/SocialDock";
+import VSCodeLiveSection from "@/components/VSCodeLiveSection";
 import { siteConfig } from "@/data/site";
 
 export const metadata = {
@@ -75,6 +76,7 @@ export default function HomePage() {
         <Projects />
         <GitHubActivity />
         <SpotifyNowListening />
+        <VSCodeLiveSection />
         <Education />
         <Contact />
       </main>

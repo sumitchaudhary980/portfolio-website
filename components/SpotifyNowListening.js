@@ -4,9 +4,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ExternalLink, Headphones, Loader2, Music2, Pause, Play } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
+import useSpotifyNowPlaying from "@/hooks/useSpotifyNowPlaying";
 import { viewportOnce } from "@/utils/motion";
-
-const pollIntervalMs = 25000;
 
 function formatTime(value) {
   const totalSeconds = Math.max(0, Math.floor((value || 0) / 1000));
@@ -23,30 +22,14 @@ function spotifyEmbedUrl(spotifyUrl) {
 export default function SpotifyNowListening() {
   const shouldReduceMotion = useReducedMotion();
   const sectionRef = useRef(null);
-  const [status, setStatus] = useState("loading");
-  const [track, setTrack] = useState(null);
+  const { status, track } = useSpotifyNowPlaying();
   const [progressMs, setProgressMs] = useState(0);
   const [listenAlong, setListenAlong] = useState(false);
   const [isSectionVisible, setIsSectionVisible] = useState(false);
 
-  const loadNowPlaying = async () => {
-    try {
-      const response = await fetch("/api/spotify/now-playing");
-      const payload = await response.json();
-      if (!response.ok) throw new Error(payload.message || "Spotify unavailable");
-      setTrack(payload);
-      setProgressMs(payload.progressMs || 0);
-      setStatus(payload.hasTrack ? "ready" : "empty");
-    } catch (error) {
-      setStatus("error");
-    }
-  };
-
   useEffect(() => {
-    loadNowPlaying();
-    const interval = window.setInterval(loadNowPlaying, pollIntervalMs);
-    return () => window.clearInterval(interval);
-  }, []);
+    setProgressMs(track?.progressMs || 0);
+  }, [track?.progressMs, track?.spotifyUrl]);
 
   useEffect(() => {
     if (!track?.isPlaying || !track.durationMs) return undefined;
@@ -76,7 +59,7 @@ export default function SpotifyNowListening() {
   const showEmbed = listenAlong && isSectionVisible && embedUrl;
 
   return (
-    <section ref={sectionRef} id="spotify-now-listening" className="section-shell" aria-labelledby="spotify-now-listening-title">
+    <section ref={sectionRef} id="spotify-now-listening" className="section-shell scroll-mt-24" aria-labelledby="spotify-now-listening-title">
       <div className="container-shell">
         <motion.div
           initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
