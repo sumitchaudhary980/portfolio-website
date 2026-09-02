@@ -364,7 +364,7 @@ export default function DeveloperTerminal() {
 
           <div
             ref={scrollRef}
-            className="max-h-[28rem] min-h-[22rem] overflow-y-auto p-4 font-mono text-sm leading-7 text-white/78 sm:p-5"
+            className="max-h-[36rem] min-h-[28rem] overflow-y-auto p-4 font-mono text-sm leading-7 text-white/78 sm:min-h-[32rem] sm:p-5"
             aria-live="polite"
           >
             {history.map((entry, index) => {

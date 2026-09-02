@@ -69,8 +69,8 @@ export default function HomePage() {
       <SocialDock />
       <main id="main-content">
         <Hero />
-        <About />
         <DeveloperTerminal />
+        <About />
         <Skills />
         <Experience />
         <Projects />
