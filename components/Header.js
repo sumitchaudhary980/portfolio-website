@@ -135,7 +135,7 @@ export default function Header() {
           </span>
         </a>
 
-        <div className="hidden min-w-0 max-w-full justify-self-center overflow-hidden rounded-full border border-white/10 bg-white/[0.04] p-1 backdrop-blur-xl min-[1500px]:flex min-[1500px]:items-center min-[1500px]:gap-1">
+        <div className="hidden min-w-0 max-w-full justify-self-center overflow-hidden rounded-full border border-white/10 bg-white/[0.04] p-1 backdrop-blur-xl">
           {navItems.map((item) => {
             const id = item.href.replace("#", "");
             const isActive = active === id;
@@ -180,7 +180,7 @@ export default function Header() {
             <button
               type="button"
               onClick={scrollToSpotify}
-              className={`group inline-flex h-10 w-auto max-w-[8.5rem] shrink-0 items-center justify-start gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2 py-2 text-left text-xs font-semibold text-white/72 backdrop-blur transition hover:bg-green/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan min-[380px]:max-w-[10rem] sm:max-w-[13rem] sm:gap-2 sm:px-3 lg:max-w-[15rem] min-[1500px]:max-w-[16rem] 2xl:max-w-[18rem] ${
+              className={`group inline-flex h-10 w-auto max-w-[9rem] shrink-0 items-center justify-start gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2 py-2 text-left text-xs font-semibold text-white/72 backdrop-blur transition hover:bg-green/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan min-[380px]:max-w-[11rem] sm:max-w-[14rem] sm:gap-2 sm:px-3 lg:max-w-[16rem] xl:max-w-[17rem] 2xl:max-w-[20rem] ${
                 isSpotifyPlaying ? "hover:border-green/45" : "hover:border-white/20"
               }`}
               aria-label={
@@ -195,7 +195,7 @@ export default function Header() {
                 <img
                   src={spotifyTrack.albumArt}
                   alt=""
-                  className="hidden h-6 w-6 shrink-0 rounded-full object-cover min-[1500px]:block"
+                  className="h-5 w-5 shrink-0 rounded-full object-cover min-[431px]:h-6 min-[431px]:w-6"
                   loading="lazy"
                 />
               ) : null}
@@ -226,7 +226,7 @@ export default function Header() {
             }
             aria-expanded={isOpen}
             onClick={() => setIsOpen((value) => !value)}
-            className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/12 bg-white/[0.05] text-white backdrop-blur max-[430px]:col-start-3 max-[430px]:row-start-1 max-[430px]:justify-self-end min-[1500px]:hidden"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/12 bg-white/[0.05] text-white backdrop-blur max-[430px]:col-start-3 max-[430px]:row-start-1 max-[430px]:justify-self-end"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -247,7 +247,7 @@ export default function Header() {
                 ? { opacity: 0 }
                 : { opacity: 0, y: -12 }
             }
-            className="border-y border-white/10 bg-ink/94 px-5 py-5 backdrop-blur-xl min-[1500px]:hidden"
+            className="border-y border-white/10 bg-ink/94 px-5 py-5 backdrop-blur-xl"
           >
             <div className="mx-auto grid max-w-7xl gap-2">
               {navItems.map((item) => {

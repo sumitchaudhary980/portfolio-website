@@ -8,13 +8,15 @@ import { contactMethods, education, experience, projects, skillCategories, siteC
 import { viewportOnce } from "@/utils/motion";
 
 const prompt = "sumit@portfolio:~";
-const linkedinUrl = "https://www.linkedin.com/in/sumit-kumar-chaudhary-505129320/";
 const commandAliases = {
   cls: "clear",
   mail: "email",
   "open email": "email",
   "open linkedin": "linkedin",
   "open github": "open github",
+  insta: "instagram",
+  "open instagram": "instagram",
+  "open insta": "instagram",
   cv: "resume",
   "open resume": "resume"
 };
@@ -34,6 +36,10 @@ const commandList = [
   "open github",
   "linkedin",
   "open linkedin",
+  "instagram",
+  "insta",
+  "open instagram",
+  "open insta",
   "email",
   "mail",
   "open email",
@@ -97,21 +103,23 @@ export default function DeveloperTerminal() {
 
   useEffect(() => {
     scrollRef.current?.scrollTo({
-      top: scrollRef.current.scrollHeight,
-      behavior: shouldReduceMotion ? "auto" : "smooth"
+      top: scrollRef.current.scrollHeight
     });
-  }, [history, shouldReduceMotion]);
+  }, [history]);
 
   const addHistory = (entry) => {
     setHistory((current) => [...current, entry]);
   };
 
   const scrollToSection = (id) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: shouldReduceMotion ? "auto" : "smooth" });
+    document.querySelector(id)?.scrollIntoView();
   };
 
   const openExternal = (href) => {
-    window.open(href, "_blank", "noopener,noreferrer");
+    const openedWindow = window.open(href, "_blank", "noopener,noreferrer");
+    if (openedWindow) {
+      openedWindow.opener = null;
+    }
   };
 
   const formatNumber = (value) => new Intl.NumberFormat("en").format(value || 0);
@@ -173,6 +181,7 @@ export default function DeveloperTerminal() {
         "SOCIAL",
         "  github",
         "  linkedin",
+        "  instagram",
         "  email",
         "  resume",
         "  socials",
@@ -187,6 +196,7 @@ export default function DeveloperTerminal() {
         "  mail, open email",
         "  open github",
         "  open linkedin",
+        "  insta, open instagram",
         "  cv, open resume",
         "",
         "NAVIGATION",
@@ -233,15 +243,23 @@ export default function DeveloperTerminal() {
     }
 
     if (command === "github") {
-      addHistory({ type: "output", lines: githubLines() });
+      addHistory({ type: "output", lines: [...githubLines(), "", "Opening GitHub..."] });
       addHistory({ type: "link", label: "Open GitHub profile", href: siteConfig.socials.github });
+      openExternal(siteConfig.socials.github);
       return;
     }
 
     if (command === "linkedin") {
       addHistory({ type: "output", lines: ["Opening LinkedIn..."] });
-      addHistory({ type: "link", label: "Open LinkedIn profile", href: linkedinUrl });
-      openExternal(linkedinUrl);
+      addHistory({ type: "link", label: "Open LinkedIn profile", href: siteConfig.socials.linkedin });
+      openExternal(siteConfig.socials.linkedin);
+      return;
+    }
+
+    if (command === "instagram") {
+      addHistory({ type: "output", lines: ["Opening Instagram..."] });
+      addHistory({ type: "link", label: "Open Instagram profile", href: siteConfig.socials.instagram });
+      openExternal(siteConfig.socials.instagram);
       return;
     }
 

@@ -13,7 +13,7 @@ export default function VSCodeLiveBadge({ onNavigate }) {
     <button
       type="button"
       onClick={onNavigate}
-      className={`group inline-flex h-10 w-auto max-w-[5.5rem] shrink-0 items-center justify-start gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2 py-2 text-left text-xs font-semibold text-white/72 backdrop-blur transition hover:bg-cyan/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan min-[380px]:max-w-[8.5rem] sm:max-w-[11rem] sm:gap-2 sm:px-3 lg:max-w-[13rem] min-[1500px]:max-w-[15rem] 2xl:max-w-[17rem] ${
+      className={`group inline-flex h-10 w-auto max-w-[5.75rem] shrink-0 items-center justify-start gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2 py-2 text-left text-xs font-semibold text-white/72 backdrop-blur transition hover:bg-cyan/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan min-[380px]:max-w-[9rem] sm:max-w-[13rem] sm:gap-2 sm:px-3 lg:max-w-[15rem] xl:max-w-[18rem] 2xl:max-w-[22rem] ${
         status.coding ? "hover:border-cyan/45" : "hover:border-white/20"
       }`}
       aria-label={`VS Code status: ${projectLabel ? `${label} in ${projectLabel}` : label}. Open the VS Code live section.`}
