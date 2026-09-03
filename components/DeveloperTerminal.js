@@ -116,9 +116,11 @@ export default function DeveloperTerminal() {
   };
 
   const openExternal = (href) => {
-    const openedWindow = window.open(href, "_blank", "noopener,noreferrer");
+    const openedWindow = window.open(href, "_blank");
+
     if (openedWindow) {
       openedWindow.opener = null;
+      openedWindow.focus();
     }
   };
 
@@ -250,9 +252,9 @@ export default function DeveloperTerminal() {
     }
 
     if (command === "linkedin") {
+      openExternal(siteConfig.socials.linkedin);
       addHistory({ type: "output", lines: ["Opening LinkedIn..."] });
       addHistory({ type: "link", label: "Open LinkedIn profile", href: siteConfig.socials.linkedin });
-      openExternal(siteConfig.socials.linkedin);
       return;
     }
 

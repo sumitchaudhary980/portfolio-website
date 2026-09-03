@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import { navItems, siteConfig } from "@/data/site";
 import useSpotifyNowPlaying from "@/hooks/useSpotifyNowPlaying";
 import VSCodeLiveBadge from "@/components/VSCodeLiveBadge";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const sectionIds = navItems.map((item) => item.href.replace("#", ""));
 
@@ -218,6 +219,8 @@ export default function Header() {
 
             <VSCodeLiveBadge onNavigate={scrollToVSCode} />
           </div>
+
+          <ThemeToggle />
 
           <button
             type="button"

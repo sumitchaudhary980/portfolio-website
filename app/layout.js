@@ -95,10 +95,20 @@ const personSchema = {
   knowsAbout: ["Full Stack Development", "React", "Next.js", "Laravel", "Node.js", "Tailwind CSS"]
 };
 
+const themeScript = `
+try {
+  var savedTheme = localStorage.getItem("theme");
+  document.documentElement.dataset.theme = savedTheme === "light" ? "light" : "dark";
+} catch {
+  document.documentElement.dataset.theme = "dark";
+}
+`;
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={sora.variable}>
+    <html lang="en" className={sora.variable} data-theme="dark" suppressHydrationWarning>
       <body className="font-sans antialiased">
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
