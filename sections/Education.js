@@ -16,7 +16,7 @@ export default function Education() {
           <SectionHeading id="education-title" eyebrow="Education" title="A foundation in engineering and computer science." align="center" />
         </SectionReveal>
 
-        <div className="mx-auto mt-14 grid max-w-4xl gap-6">
+        <div className="education-timeline mx-auto mt-14 grid max-w-4xl gap-6">
           {education.map((item, index) => {
             const isActive = activeSchool === item.school;
             return (

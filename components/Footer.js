@@ -71,6 +71,7 @@ export default function Footer() {
             <button
               type="button"
               onClick={scrollToTop}
+              aria-label="Back to top"
               className="group inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[11px] font-semibold text-white/62 transition hover:border-cyan/50 hover:text-white whitespace-nowrap sm:gap-1.5 sm:px-3 sm:py-1.5 sm:text-xs"
             >
               <span className="hidden sm:inline">Back to top</span>

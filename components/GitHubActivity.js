@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+import { loadGitHubActivity } from "@/utils/githubActivity";
 import { motion, useReducedMotion } from "framer-motion";
 import { ExternalLink, Github, Loader2, Star } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
@@ -32,11 +33,7 @@ export default function GitHubActivity() {
   useEffect(() => {
     let isMounted = true;
 
-    fetch("/api/github-activity")
-      .then((response) => {
-        if (!response.ok) throw new Error("GitHub activity unavailable");
-        return response.json();
-      })
+    loadGitHubActivity()
       .then((payload) => {
         if (!isMounted) return;
         setData(payload);
@@ -114,13 +111,25 @@ export default function GitHubActivity() {
                 </div>
                 <div className="overflow-x-auto pb-2">
                   <div className="grid w-max grid-flow-col grid-rows-7 gap-1" aria-label="GitHub contribution heatmap for the last year">
-                    {activity.map((day) => (
+                    {activity.map((day, dayIndex) => (
                       <button
                         key={day.date}
                         type="button"
                         onMouseEnter={() => setActiveDay(day)}
                         onFocus={() => setActiveDay(day)}
                         onClick={() => setActiveDay(day)}
+                        tabIndex={activeDay ? (activeDay.date === day.date ? 0 : -1) : (dayIndex === activity.length - 1 ? 0 : -1)}
+                        onKeyDown={(event) => {
+                          const steps = { ArrowRight: 7, ArrowLeft: -7, ArrowDown: 1, ArrowUp: -1 };
+                          let next = dayIndex;
+                          if (event.key in steps) next += steps[event.key];
+                          else if (event.key === "Home") next = 0;
+                          else if (event.key === "End") next = activity.length - 1;
+                          else return;
+                          event.preventDefault();
+                          next = Math.max(0, Math.min(activity.length - 1, next));
+                          event.currentTarget.parentElement.children[next]?.focus();
+                        }}
                         title={`${formatDate(day.date)}: ${day.count} contribution${day.count === 1 ? "" : "s"}`}
                         className={`h-4 w-4 rounded-[3px] border border-white/10 transition hover:ring-2 hover:ring-cyan focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan ${activityClass(day.level)}`}
                         aria-label={`${day.count} GitHub contribution${day.count === 1 ? "" : "s"} on ${formatDate(day.date)}`}
@@ -147,7 +156,7 @@ export default function GitHubActivity() {
                   <p className="mt-2 text-sm leading-6 text-white/58">
                     {activeDay
                       ? `${activeDay.count} contribution${activeDay.count === 1 ? "" : "s"} recorded in GitHub's contribution calendar.`
-                      : "Use keyboard focus or pointer hover to inspect daily contribution details."}
+                      : "Tap a day or use the arrow keys to inspect daily contribution details."}
                   </p>
                 </div>
               </div>

@@ -1,7 +1,6 @@
 import {
   Code2,
   Database,
-  Figma,
   FileDown,
   Github,
   Instagram,
@@ -29,15 +28,14 @@ import {
   SiReact,
   SiSqlite,
   SiTailwindcss,
-  SiVite,
   SiVscodium
 } from "react-icons/si";
 
 export const siteConfig = {
   name: "Sumit Kumar Chaudhary",
   title: "Full Stack Developer",
-  tagline: "Full Stack Developer based in Kathmandu, Nepal, building modern, scalable, and user-friendly web applications with React, HTML5, CSS3, Bootstrap, JavaScript, PHP, Laravel, and Node.js", description:
-    "Sumit Kumar Chaudhary is a Full Stack Developer based in Kathmandu, Nepal. Explore my portfolio featuring React, HTML5, CSS3, Bootstrap, Javascript, PHP, Laravel, Node.js, and modern web application projects with scalable backend architecture and responsive user interfaces.",
+  tagline: "Full Stack Developer based in Kathmandu, Nepal, building modern, scalable, and user-friendly web applications with React, HTML5, CSS3, Bootstrap, JavaScript, PHP, Laravel, and Node.js.",
+  description: "Sumit Kumar Chaudhary, Full Stack Developer in Kathmandu, Nepal, building modern web applications with React, JavaScript, PHP and Laravel.",
   url: "https://www.sumitkumarchaudhary.com.np",
   email: "jaiswalsumit1010@gmail.com",
   location: "Kathmandu, Nepal",
@@ -74,6 +72,7 @@ export const navItems = [
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Education", href: "#education" },
+  { label: "Certificates", href: "#certificates" },
   { label: "Contact", href: "#contact" }
 ];
 
@@ -264,7 +263,6 @@ export const projects = [
   },
 ];
 
-// Replace the project placeholder PNGs in public/projects with real product screenshots when they are ready.
 export const projectFilters = ["All", "React", "Laravel", "Node.js", "MySQL", "SQLite", "MongoDB", "C#", "Unity", "Express.js", "Tailwind CSS", "Bootstrap", "JavaScript", "PHP"];
 
 export const education = [
@@ -296,6 +294,6 @@ export const education = [
 export const contactMethods = [
   { label: "Email", value: siteConfig.email, href: `mailto:${siteConfig.email}`, icon: Mail },
   { label: "GitHub", value: "github.com/sumitchaudhary980", href: siteConfig.socials.github, icon: Github },
-  { label: "LinkedIn", value: "https://www.linkedin.com/in/sumit-chaudhary-505129320/", href: siteConfig.socials.linkedin, icon: Linkedin },
+  { label: "LinkedIn", value: "linkedin.com/in/sumit-kumar-chaudhary-505129320", href: siteConfig.socials.linkedin, icon: Linkedin },
   { label: "Instagram", value: "instagram.com/sumitjaiswal.1", href: siteConfig.socials.instagram, icon: Instagram },
 ];

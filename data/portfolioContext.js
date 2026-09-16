@@ -7,6 +7,8 @@ import {
   skillCategories
 } from "@/data/site";
 
+import { certificates } from "@/data/certificates";
+
 const listItems = (items) => items.map((item) => `- ${item}`).join("\n");
 
 export function buildPortfolioContext() {
@@ -88,6 +90,9 @@ export function buildPortfolioContext() {
     "",
     "Education:",
     educationSummaries,
+    "",
+    "Certificates:",
+    listItems(certificates.map((certificate) => `${certificate.title} — ${certificate.issuer}, ${certificate.dateLabel}`)),
     "",
     "Contact and public links:",
     contacts,

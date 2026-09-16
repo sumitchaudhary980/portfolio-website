@@ -10,6 +10,7 @@ export default function MagneticButton({
   download = false,
   target,
   rel,
+  ariaLabel,
   variant = "primary"
 }) {
   const ref = useRef(null);
@@ -43,11 +44,12 @@ export default function MagneticButton({
       download={download}
       target={target}
       rel={rel}
+      aria-label={ariaLabel}
       style={{ x: springX, y: springY }}
       onMouseMove={handleMouseMove}
       onMouseLeave={reset}
       whileHover={shouldReduceMotion ? undefined : { scale: 1.035 }}
-      whileTap={{ scale: 0.98 }}
+      whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
       className={`group inline-flex min-h-12 items-center justify-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan ${styles} ${className}`}
     >
       {children}

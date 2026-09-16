@@ -6,6 +6,7 @@ import { ExternalLink, Terminal } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { contactMethods, education, experience, projects, skillCategories, siteConfig, socialLinks } from "@/data/site";
 import { viewportOnce } from "@/utils/motion";
+import { loadGitHubActivity } from "@/utils/githubActivity";
 
 const prompt = "sumit@portfolio:~";
 const commandAliases = {
@@ -81,11 +82,7 @@ export default function DeveloperTerminal() {
   useEffect(() => {
     let isMounted = true;
 
-    fetch("/api/github-activity")
-      .then((response) => {
-        if (!response.ok) throw new Error("GitHub unavailable");
-        return response.json();
-      })
+    loadGitHubActivity()
       .then((payload) => {
         if (!isMounted) return;
         setGithubData(payload);
@@ -322,12 +319,11 @@ export default function DeveloperTerminal() {
       return;
     }
 
-    if (event.key === "Tab") {
-      event.preventDefault();
+    if (event.key === "Tab" && !event.shiftKey && input.trim()) {
       const value = input.trim().toLowerCase();
       if (!value) return;
       const match = commandList.find((item) => item.startsWith(value));
-      if (match) setInput(match);
+      if (match && match !== value) { event.preventDefault(); setInput(match); }
     }
   };
 
@@ -397,8 +393,8 @@ export default function DeveloperTerminal() {
 
               return (
                 <div key={`${entry.type}-${index}`} className="mb-3 whitespace-pre-wrap break-words text-white/66">
-                  {entry.lines.map((line) => (
-                    <p key={`${index}-${line}`}>{line}</p>
+                  {entry.lines.map((line, lineIndex) => (
+                    <p key={`${index}-${lineIndex}`}>{line}</p>
                   ))}
                 </div>
               );

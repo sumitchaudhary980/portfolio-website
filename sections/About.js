@@ -28,14 +28,15 @@ export default function About() {
         <SectionReveal>
           <SectionHeading id="about-title" eyebrow="About Me" title="Full Stack Developer in Kathmandu" />
           <p className="mt-7 text-lg leading-8 text-white/68">
-            I'm Sumit Kumar Chaudhary, a Full Stack Developer based in Kathmandu, Nepal,
+            I&apos;m Sumit Kumar Chaudhary, a Full Stack Developer based in Kathmandu, Nepal,
             passionate about building modern, scalable, and user-friendly web
             applications. I enjoy working across the entire development stack using
             React, Next.js, Node.js, Laravel, MySQL, and MongoDB to create responsive
-            interfaces and reliable backend systems. I'm always learning new technologies
+            interfaces and reliable backend systems. I&apos;m always learning new technologies
             and enjoy solving real-world problems through clean, maintainable, and
             efficient code.
           </p>
+          <p className="mt-5 text-base leading-8 text-white/68">I also have a genuine interest in cybersecurity and ethical hacking, and in understanding how to make web applications more secure.</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
             {principles.map((item) => {
               const Icon = item.icon;
@@ -56,7 +57,7 @@ export default function About() {
           <div className="glass relative overflow-hidden rounded-[8px] p-4">
             <Image
               src="/image/profile1.jpg"
-              alt="Profile Image"
+              alt="Sumit Kumar Chaudhary, Full Stack Developer based in Kathmandu"
               width={900}
               height={720}
               sizes="(min-width: 1024px) 45vw, 100vw"

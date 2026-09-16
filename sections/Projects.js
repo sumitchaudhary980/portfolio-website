@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { ExternalLink, Github, Info, SlidersHorizontal, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import MagneticButton from "@/components/MagneticButton";
+import ProjectTilt from "@/components/ProjectTilt";
+import ProjectDialog from "@/components/ProjectDialog";
 import SectionHeading from "@/components/SectionHeading";
 import { projectFilters, projects } from "@/data/site";
 import { staggerContainer, viewportOnce } from "@/utils/motion";
@@ -13,6 +15,19 @@ export default function Projects() {
   const [filter, setFilter] = useState("All");
   const [selectedProject, setSelectedProject] = useState(null);
   const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    let frame;
+    const navigate = () => {
+      if (!window.location.hash.startsWith("#project-")) return;
+      setFilter("All");
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => document.getElementById(window.location.hash.slice(1))?.scrollIntoView({ behavior: "instant" }));
+    };
+    navigate();
+    window.addEventListener("hashchange", navigate);
+    return () => { cancelAnimationFrame(frame); window.removeEventListener("hashchange", navigate); };
+  }, []);
 
   const filteredProjects = useMemo(() => {
     if (filter === "All") return projects;
@@ -46,6 +61,7 @@ export default function Projects() {
                 key={item}
                 type="button"
                 onClick={() => setFilter(item)}
+                aria-pressed={filter === item}
                 className={`min-h-10 rounded-full border px-4 py-2 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan ${
                   filter === item
                     ? "border-cyan/70 bg-cyan text-ink"
@@ -58,7 +74,8 @@ export default function Projects() {
           </motion.div>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <p className="sr-only" role="status">{filteredProjects.length} projects shown</p>
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           <AnimatePresence mode="wait">
             <motion.div
               key={filter}
@@ -68,13 +85,14 @@ export default function Projects() {
               variants={staggerContainer}
             >
               {filteredProjects.map((project) => (
+                <ProjectTilt key={project.slug}>
                 <motion.article
                   key={project.slug}
+                  id={`project-${project.slug}`}
                   variants={{
                     hidden: shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 30 },
                     visible: { opacity: 1, y: 0, transition: { duration: 0.62, ease: [0.22, 1, 0.36, 1] } }
                   }}
-                  whileHover={shouldReduceMotion ? undefined : { y: -8, rotateX: 1.4, rotateY: -1.4 }}
                   className="group glass relative overflow-hidden rounded-[8px] p-3"
                   data-cursor="VIEW"
                 >
@@ -88,7 +106,7 @@ export default function Projects() {
                       alt={project.alt}
                       width={980}
                       height={720}
-                      sizes="(min-width: 1024px) 33vw, 100vw"
+                      sizes="(min-width: 1280px) 380px, (min-width: 768px) 50vw, 100vw"
                       className="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105"
                     />
                   </div>
@@ -106,6 +124,7 @@ export default function Projects() {
                       <button
                         type="button"
                         onClick={() => setSelectedProject(project)}
+                        aria-label={`Details about ${project.title}`}
                         className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-white transition-colors duration-300 hover:border-cyan/60 hover:bg-cyan/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan"
                       >
                         <Info size={16} aria-hidden="true" />
@@ -113,6 +132,7 @@ export default function Projects() {
                       </button>
                       <MagneticButton
                         href={project.github}
+                        ariaLabel={`${project.title} source code on GitHub`}
                         target="_blank"
                         rel="noreferrer"
                         variant="secondary"
@@ -124,6 +144,7 @@ export default function Projects() {
                       {project.demo !== "#" ? (
                         <MagneticButton
                           href={project.demo}
+                          ariaLabel={`Visit ${project.title} live demo`}
                           target="_blank"
                           rel="noreferrer"
                           variant="primary"
@@ -140,24 +161,15 @@ export default function Projects() {
                     </div>
                   </div>
                 </motion.article>
+                </ProjectTilt>
               ))}
             </motion.div>
           </AnimatePresence>
         </div>
       </div>
 
-      <AnimatePresence>
         {selectedProject ? (
-          <motion.div
-            className="fixed inset-0 z-[70] grid place-items-center bg-ink/78 p-5 backdrop-blur-md"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            role="dialog"
-            aria-modal="true"
-            aria-label={`${selectedProject.title} project details`}
-            onClick={() => setSelectedProject(null)}
-          >
+          <ProjectDialog label={`${selectedProject.title} project details`} onClose={() => setSelectedProject(null)}>
             <motion.article
               className="glass max-h-[88vh] w-full max-w-3xl overflow-auto rounded-[8px] p-5 md:p-7"
               initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 18, scale: 0.98 }}
@@ -199,9 +211,8 @@ export default function Projects() {
                 ) : null}
               </div>
             </motion.article>
-          </motion.div>
+          </ProjectDialog>
         ) : null}
-      </AnimatePresence>
     </section>
   );
 }

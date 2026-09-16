@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Send, AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
@@ -21,13 +21,15 @@ export default function Contact() {
   const [status, setStatus] = useState("");
   const [showToast, setShowToast] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+  const toastTimer = useRef(null);
+  useEffect(() => () => clearTimeout(toastTimer.current), []);
 
   const validateField = (name, value) => {
     let error = "";
     if (name === "name" && !value.trim()) {
       error = "Full name is required.";
     }
-    if (name === "email" && !value.includes("@")) {
+    if (name === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())) {
       error = "Valid email is required.";
     }
     if (name === "message" && value.trim().length < 10) {
@@ -69,6 +71,7 @@ export default function Contact() {
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
       setStatus("");
+      event.currentTarget.elements.namedItem(Object.keys(formErrors)[0])?.focus();
       return;
     }
 
@@ -91,7 +94,7 @@ export default function Contact() {
         setTouched({});
         setShowToast(true);
         
-        setTimeout(() => {
+        toastTimer.current = setTimeout(() => {
           setShowToast(false);
           setStatus("");
         }, 5000);
@@ -163,6 +166,9 @@ export default function Contact() {
                 <div className="relative flex items-center">
                   <input
                     name="name"
+                    autoComplete="name"
+                    aria-invalid={Boolean(errors.name && touched.name)}
+                    aria-describedby={errors.name && touched.name ? "contact-name-error" : undefined}
                     value={form.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -177,7 +183,7 @@ export default function Contact() {
                   )}
                 </div>
                 {errors.name && touched.name && (
-                  <span className="absolute bottom-0 left-0 text-[10px] font-medium text-red-400">{errors.name}</span>
+                  <span id="contact-name-error" className="absolute bottom-0 left-0 text-xs font-medium text-red-400">{errors.name}</span>
                 )}
               </label>
 
@@ -186,6 +192,9 @@ export default function Contact() {
                 <div className="relative flex items-center">
                   <input
                     name="email"
+                    autoComplete="email"
+                    aria-invalid={Boolean(errors.email && touched.email)}
+                    aria-describedby={errors.email && touched.email ? "contact-email-error" : undefined}
                     type="email"
                     value={form.email}
                     onChange={handleChange}
@@ -201,7 +210,7 @@ export default function Contact() {
                   )}
                 </div>
                 {errors.email && touched.email && (
-                  <span className="absolute bottom-0 left-0 text-[10px] font-medium text-red-400">{errors.email}</span>
+                  <span id="contact-email-error" className="absolute bottom-0 left-0 text-xs font-medium text-red-400">{errors.email}</span>
                 )}
               </label>
             </div>
@@ -234,6 +243,8 @@ export default function Contact() {
               <div className="relative">
                 <textarea
                   name="message"
+                  aria-invalid={Boolean(errors.message && touched.message)}
+                  aria-describedby={errors.message && touched.message ? "contact-message-error" : undefined}
                   value={form.message}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -249,7 +260,7 @@ export default function Contact() {
                 )}
               </div>
               {errors.message && touched.message && (
-                <span className="absolute bottom-0 left-0 text-[10px] font-medium text-red-400">{errors.message}</span>
+                <span id="contact-message-error" className="absolute bottom-0 left-0 text-xs font-medium text-red-400">{errors.message}</span>
               )}
             </label>
 
@@ -265,7 +276,7 @@ export default function Contact() {
                 className="inline-flex min-h-12 w-full sm:w-auto min-w-[150px] items-center justify-center gap-2 rounded-full border border-violet/50 bg-violet px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:border-cyan/70 hover:bg-cyan focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan whitespace-nowrap disabled:opacity-80 disabled:cursor-not-allowed"
               >
                 {status === "sending" ? (
-                  <Loader2 size={18} className="animate-spin" aria-hidden="true" />
+                  <><Loader2 size={18} className="animate-spin" aria-hidden="true" /><span>Sending…</span></>
                 ) : (
                   <>
                     Send Message
@@ -281,7 +292,7 @@ export default function Contact() {
       <AnimatePresence>
         {showToast && (
           <motion.div
-            initial={{ opacity: 0, x: 100, scale: 0.9 }}
+            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 100, scale: shouldReduceMotion ? 1 : 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 54, scale: 0.9 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
@@ -292,8 +303,8 @@ export default function Contact() {
               <CheckCircle2 size={18} aria-hidden="true" />
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white">Message sent successfully!</h4>
-              <p className="mt-0.5 text-xs text-white/60">Thank you for reaching out. I will get back to you within 24 hours.</p>
+              <p className="text-sm font-semibold text-white">Message sent successfully!</p>
+              <p className="mt-0.5 text-xs text-white/60">Thank you for reaching out. I will get back to you soon.</p>
             </div>
           </motion.div>
         )}

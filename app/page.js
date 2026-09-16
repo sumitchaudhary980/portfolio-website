@@ -1,4 +1,5 @@
 import About from "@/sections/About";
+import Certificates from "@/sections/Certificates";
 import Contact from "@/sections/Contact";
 import Education from "@/sections/Education";
 import Experience from "@/sections/Experience";
@@ -11,15 +12,14 @@ import Footer from "@/components/Footer";
 import GitHubActivity from "@/components/GitHubActivity";
 import Header from "@/components/Header";
 import PortfolioAssistant from "@/components/PortfolioAssistant";
-import SpotifyNowListening from "@/components/SpotifyNowListening";
+import PortfolioWorld from "@/components/PortfolioWorld";
 import SocialDock from "@/components/SocialDock";
 import VSCodeLiveSection from "@/components/VSCodeLiveSection";
 import { siteConfig } from "@/data/site";
 
 export const metadata = {
-  title: `${siteConfig.name} - Full Stack Developer Portfolio`,
-  description:
-    "Explore the full stack development portfolio of Sumit Kumar Chaudhary, including scalable web applications, Laravel marketplaces, React interfaces, and modern backend systems.",
+  title: { absolute: `${siteConfig.name} | Full Stack Developer` },
+  description: siteConfig.description,
 
   verification: {
     google: "76tGA8Fr2ZSJ_2GDg5bD7sT26lmnZGZuObp1z3ChezQ",
@@ -38,9 +38,9 @@ export const metadata = {
   },
 
   openGraph: {
-    title: `${siteConfig.name} - Full Stack Developer Portfolio`,
-    description:
-      "Modern portfolio showcasing scalable web applications, clean architecture, and thoughtful user experiences by Sumit Kumar Chaudhary.",
+    title: `${siteConfig.name} | Full Stack Developer`,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
     url: siteConfig.url,
     type: "website",
     images: [
@@ -55,9 +55,8 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} - Full Stack Developer Portfolio`,
-    description:
-      "Full Stack Developer building scalable web applications with modern technologies and polished user experiences.",
+    title: `${siteConfig.name} | Full Stack Developer`,
+    description: siteConfig.description,
     images: ["/opengraph-image"],
   },
 };
@@ -65,6 +64,7 @@ export const metadata = {
 export default function HomePage() {
   return (
     <>
+      <PortfolioWorld />
       <Header />
       <SocialDock />
       <main id="main-content">
@@ -75,9 +75,9 @@ export default function HomePage() {
         <Experience />
         <Projects />
         <GitHubActivity />
-        <SpotifyNowListening />
         <VSCodeLiveSection />
         <Education />
+        <Certificates />
         <Contact />
       </main>
       <Footer />

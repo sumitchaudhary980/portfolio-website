@@ -1,65 +1,51 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
-const pollIntervalMs = 30000;
+const offline = { status: "Offline", coding: false, project: "", file: "", language: "", lastSeen: null };
+let state = offline;
+let timer;
+let controller;
+const listeners = new Set();
+const getSnapshot = () => state;
+const getServerSnapshot = () => offline;
+
+async function loadStatus() {
+  if (document.hidden || controller) return;
+  const request = new AbortController();
+  controller = request;
+  try {
+    const response = await fetch("/api/vscode/status", { cache: "no-store", signal: request.signal });
+    if (!response.ok) throw new Error("Status unavailable");
+    const payload = await response.json();
+    if (!request.signal.aborted) state = payload;
+  } catch {
+    if (!request.signal.aborted) state = offline;
+  } finally {
+    if (controller === request) controller = null;
+    if (!request.signal.aborted) listeners.forEach((listener) => listener());
+  }
+}
+
+function visibility() {
+  clearInterval(timer);
+  if (document.hidden) { controller?.abort(); controller = null; return; }
+  loadStatus();
+  timer = setInterval(loadStatus, 30000);
+}
+
+function subscribe(listener) {
+  listeners.add(listener);
+  if (listeners.size === 1) { visibility(); document.addEventListener("visibilitychange", visibility); }
+  return () => {
+    listeners.delete(listener);
+    if (!listeners.size) {
+      clearInterval(timer); controller?.abort(); controller = null;
+      document.removeEventListener("visibilitychange", visibility);
+    }
+  };
+}
 
 export default function useVSCodeLiveStatus() {
-  const [state, setState] = useState({
-    status: "Offline",
-    coding: false,
-    project: "",
-    file: "",
-    language: "",
-    lastSeen: null
-  });
-
-  useEffect(() => {
-    let isMounted = true;
-
-    const loadStatus = async () => {
-      try {
-        const response = await fetch("/api/vscode/status", {
-          cache: "no-store"
-        });
-
-        const payload = await response.json();
-
-        if (!response.ok) {
-          throw new Error(
-            payload.error || "VS Code status unavailable"
-          );
-        }
-
-        if (isMounted) {
-          setState(payload);
-        }
-      } catch (error) {
-        if (isMounted) {
-          setState({
-            status: "Offline",
-            coding: false,
-            project: "",
-            file: "",
-            language: "",
-            lastSeen: null
-          });
-        }
-      }
-    };
-
-    loadStatus();
-
-    const interval = window.setInterval(
-      loadStatus,
-      pollIntervalMs
-    );
-
-    return () => {
-      isMounted = false;
-      window.clearInterval(interval);
-    };
-  }, []);
-
-  return state;
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }

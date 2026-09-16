@@ -29,7 +29,7 @@ export default function Image() {
           <div style={{ width: 18, height: 18, borderRadius: 999, background: "#22C55E" }} />
           Portfolio
         </div>
-        <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 78, fontWeight: 800, lineHeight: 1.02, letterSpacing: 0 }}>
             {siteConfig.name}
           </div>

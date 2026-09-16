@@ -14,7 +14,7 @@ export default function ThemeToggle() {
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = nextTheme;
-    localStorage.setItem("theme", nextTheme);
+    try { localStorage.setItem("theme", nextTheme); } catch { /* Theme still works without storage. */ }
     setTheme(nextTheme);
   };
 

@@ -81,6 +81,7 @@ export const metadata = {
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${siteConfig.url}/#person`,
   name: siteConfig.name,
   jobTitle: siteConfig.title,
   url: siteConfig.url,
@@ -92,7 +93,15 @@ const personSchema = {
     addressCountry: "NP"
   },
   sameAs: [siteConfig.socials.github, siteConfig.socials.linkedin, siteConfig.socials.instagram],
-  knowsAbout: ["Full Stack Development", "React", "Next.js", "Laravel", "Node.js", "Tailwind CSS"]
+  knowsAbout: ["Full Stack Development", "HTML", "CSS", "JavaScript", "React", "PHP", "Laravel", "Node.js", "Cybersecurity", "Ethical Hacking"]
+};
+
+const profileSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "WebSite", "@id": `${siteConfig.url}/#website`, url: siteConfig.url, name: `${siteConfig.name} Portfolio`, publisher: { "@id": `${siteConfig.url}/#person` } },
+    { "@type": "ProfilePage", "@id": `${siteConfig.url}/#profile`, url: siteConfig.url, name: `${siteConfig.name} | Full Stack Developer`, mainEntity: { "@id": `${siteConfig.url}/#person` }, isPartOf: { "@id": `${siteConfig.url}/#website` } }
+  ]
 };
 
 const themeScript = `
@@ -113,6 +122,8 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(profileSchema) }} />
+        <noscript><style>{`[style*="opacity:0"], [style*="opacity: 0"] { opacity: 1 !important; transform: none !important; }`}</style></noscript>
         <div className="noise" aria-hidden="true" />
         {children}
       </body>
