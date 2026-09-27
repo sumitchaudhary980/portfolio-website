@@ -37,7 +37,7 @@ export const siteConfig = {
   tagline: "Full Stack Developer based in Kathmandu, Nepal, building modern, scalable, and user-friendly web applications with React, HTML5, CSS3, Bootstrap, JavaScript, PHP, Laravel, and Node.js.",
   description: "Sumit Kumar Chaudhary, Full Stack Developer in Kathmandu, Nepal, building modern web applications with React, JavaScript, PHP and Laravel.",
   url: "https://www.sumitkumarchaudhary.com.np",
-  email: "jaiswalsumit1010@gmail.com",
+  email: "sumitchaudhary.nep@gmail.com",
   location: "Kathmandu, Nepal",
   resume: "/sumit-kumar-chaudhary.pdf",
   keywords: [
@@ -60,7 +60,7 @@ export const siteConfig = {
   ],
   socials: {
     github: "https://github.com/sumitchaudhary980",
-    linkedin: "https://www.linkedin.com/in/sumit-kumar-chaudhary-505129320/",
+    linkedin: "https://www.linkedin.com/in/sumit-kumar-chaudhary/",
     instagram: "https://www.instagram.com/sumitjaiswal.1"
   }
 };
