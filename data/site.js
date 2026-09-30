@@ -294,6 +294,6 @@ export const education = [
 export const contactMethods = [
   { label: "Email", value: siteConfig.email, href: `mailto:${siteConfig.email}`, icon: Mail },
   { label: "GitHub", value: "github.com/sumitchaudhary980", href: siteConfig.socials.github, icon: Github },
-  { label: "LinkedIn", value: "linkedin.com/in/sumit-kumar-chaudhary-505129320", href: siteConfig.socials.linkedin, icon: Linkedin },
+  { label: "LinkedIn", value: "linkedin.com/in/sumit-kumar-chaudhary", href: siteConfig.socials.linkedin, icon: Linkedin },
   { label: "Instagram", value: "instagram.com/sumitjaiswal.1", href: siteConfig.socials.instagram, icon: Instagram },
 ];
