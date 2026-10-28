@@ -6,7 +6,8 @@ export const certificates = [
     category: "Design",
     date: "2026-09-09",
     dateLabel: "September 2026",
-    image: "/image/certificates/UIUX Design.png",
+    image: "/image/certificates/optimized/ui-ux-design.webp",
+    originalImage: "/image/certificates/UIUX Design.png",
     verificationUrl: "https://certificate.heraldcollege.edu.np/certificate/verify/HCKCS4A250066TS1GK"
   },
   {
@@ -16,7 +17,8 @@ export const certificates = [
     category: "Development",
     date: "2026-08-30",
     dateLabel: "August 2026",
-    image: "/image/certificates/Web Application Development.png",
+    image: "/image/certificates/optimized/web-application-development.webp",
+    originalImage: "/image/certificates/Web Application Development.png",
     verificationUrl: "https://certificate.heraldcollege.edu.np/certificate/verify/HCKCS4A250066KJ1IY"
   },
   {
@@ -26,7 +28,8 @@ export const certificates = [
     category: "Databases",
     date: "2026-08-30",
     dateLabel: "August 2026",
-    image: "/image/certificates/Database.png",
+    image: "/image/certificates/optimized/database.webp",
+    originalImage: "/image/certificates/Database.png",
     verificationUrl: "https://certificate.heraldcollege.edu.np/certificate/verify/HCKCS4A250066XOS6I"
   },
   {
@@ -36,7 +39,8 @@ export const certificates = [
     category: "Development",
     date: "2024-10-14",
     dateLabel: "October 2024",
-    image: "/image/certificates/Full-Stack.jpg",
+    image: "/image/certificates/optimized/full-stack-laravel-php.webp",
+    originalImage: "/image/certificates/Full-Stack.jpg",
     verificationUrl: "https://www.coursera.org/account/accomplishments/verify/NY6NTXPRTEMR"
   },
   {
@@ -46,7 +50,8 @@ export const certificates = [
     category: "Development",
     date: "2024-09-21",
     dateLabel: "September 2024",
-    image: "/image/certificates/Wordpress.jpg",
+    image: "/image/certificates/optimized/wordpress.webp",
+    originalImage: "/image/certificates/Wordpress.jpg",
     verificationUrl: "https://www.coursera.org/account/accomplishments/verify/KQJUUPWK5P7Z"
   },
   {
@@ -56,7 +61,8 @@ export const certificates = [
     category: "SEO",
     date: "2024-09-21",
     dateLabel: "September 2024",
-    image: "/image/certificates/SEO.jpg",
+    image: "/image/certificates/optimized/seo-squarespace.webp",
+    originalImage: "/image/certificates/SEO.jpg",
     verificationUrl: "https://www.coursera.org/account/accomplishments/verify/AS2HPG5H7J77"
   }
 ];

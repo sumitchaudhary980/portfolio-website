@@ -58,7 +58,7 @@ export default function Certificates() {
             <div className="certificate-dialog-footer">
               <div className="certificate-dialog-links">
                 <a href={selected.verificationUrl} target="_blank" rel="noopener noreferrer" aria-label={`Verify ${selected.title} certificate (opens in a new tab)`}>Verify certificate<ExternalLink size={16} aria-hidden="true" /></a>
-                <a href={encodeURI(selected.image)} target="_blank" rel="noreferrer">Open original image<ExternalLink size={16} aria-hidden="true" /></a>
+                <a href={encodeURI(selected.originalImage)} target="_blank" rel="noreferrer">Open original image<ExternalLink size={16} aria-hidden="true" /></a>
               </div>
               <span>Esc to close</span>
             </div>

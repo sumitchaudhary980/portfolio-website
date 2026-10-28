@@ -8,12 +8,16 @@ import SectionHeading from "@/components/SectionHeading";
 import { siteConfig } from "@/data/site";
 import { viewportOnce } from "@/utils/motion";
 
+const contributionColors = [
+  "bg-[#161b22]",
+  "bg-[#0e4429]",
+  "bg-[#006d32]",
+  "bg-[#26a641]",
+  "bg-[#39d353]"
+];
+
 function activityClass(level) {
-  if (level >= 4) return "bg-green";
-  if (level === 3) return "bg-cyan";
-  if (level === 2) return "bg-violet";
-  if (level === 1) return "bg-violet/55";
-  return "bg-white/[0.055]";
+  return contributionColors[Math.min(4, Math.max(0, level))] || contributionColors[0];
 }
 
 function formatNumber(value) {
@@ -131,7 +135,7 @@ export default function GitHubActivity() {
                           event.currentTarget.parentElement.children[next]?.focus();
                         }}
                         title={`${formatDate(day.date)}: ${day.count} contribution${day.count === 1 ? "" : "s"}`}
-                        className={`h-4 w-4 rounded-[3px] border border-white/10 transition hover:ring-2 hover:ring-cyan focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan ${activityClass(day.level)}`}
+                        className={`h-4 w-4 rounded-[3px] border border-transparent transition hover:ring-2 hover:ring-cyan focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan ${activityClass(day.level)}`}
                         aria-label={`${day.count} GitHub contribution${day.count === 1 ? "" : "s"} on ${formatDate(day.date)}`}
                       />
                     ))}
@@ -140,7 +144,7 @@ export default function GitHubActivity() {
                 <div className="mt-3 flex flex-wrap items-center gap-2 text-xs font-semibold text-white/42">
                   <span>Less</span>
                   {[0, 1, 2, 3, 4].map((level) => (
-                    <span key={level} className={`h-3 w-3 rounded-[3px] border border-white/10 ${activityClass(level)}`} aria-hidden="true" />
+                    <span key={level} className={`h-3 w-3 rounded-[3px] border border-transparent ${activityClass(level)}`} aria-hidden="true" />
                   ))}
                   <span>More</span>
                   {data.contributionPeriod?.from && data.contributionPeriod?.to ? (
