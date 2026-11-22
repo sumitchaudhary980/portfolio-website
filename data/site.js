@@ -131,6 +131,20 @@ export const skillCategories = [
 
 export const experience = [
   {
+    company: "T&D Workforce Solutions",
+    role: "Digital Marketing Intern",
+    period: "November 2026 - Present",
+    icon: TerminalSquare,
+    responsibilities: [
+      "Supporting digital marketing initiatives to strengthen the company's online presence.",
+      "Creating and designing promotional content for social media platforms.",
+      "Working on social media marketing and content planning.",
+      "Assisting with digital marketing campaigns and brand awareness activities.",
+      "Researching marketing trends and identifying opportunities for audience engagement.",
+      "Collaborating with the marketing team on ongoing projects and tasks."
+    ]
+  },
+  {
     company: "Immersive Mobile Designs",
     role: "Full Stack Developer Intern",
     period: "December 2024 - April 2025",
@@ -146,6 +160,7 @@ export const experience = [
       "Focused on scalability and maintainability."
     ]
   }
+  
 ];
 
 export const projects = [
